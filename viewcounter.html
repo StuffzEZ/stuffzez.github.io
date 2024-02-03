@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server-Side View Counter</title>
+</head>
+<body>
+
+    <h1>Welcome to the Page</h1>
+    
+    <p>This page has been viewed <span id="viewCount">0</span> times.</p>
+
+    <script>
+        // Function to increment the view count using AJAX
+        function incrementViewCount() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'viewcounter.php', true);
+            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById('viewCount').textContent = parseInt(xhr.responseText) + 1;
+                }
+            };
+            xhr.send();
+        }
+
+        // Call the incrementViewCount function when the page loads
+        window.onload = incrementViewCount;
+    </script>
+
+</body>
+</html>
+
+<?php
+
+// Function to get the view count from the 'viewcount.txt' file
+function getViewCount() {
+    $count = 0;
+    $filename = 'viewcount.txt';
+
+    if (file_exists($filename)) {
+        $count = (int)file_get_contents($filename);
+    }
+
+    return $count;
+}
+
+// Function to increment the view count in the 'viewcount.txt' file
+function incrementViewCount() {
+    $filename = 'viewcount.txt';
+
+    $count = getViewCount() + 1;
+
+    file_put_contents($filename, $count);
+}
+
+// Check if it's an AJAX request to increment the count
+if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+    // AJAX request to increment view count
+    incrementViewCount();
+    echo getViewCount();
+}
+?>
