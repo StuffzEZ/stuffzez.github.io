@@ -11,5 +11,6 @@ Nothing Here. Yet...
 - Addded Redirect Links
 - Added Queries
 - Changed Style
+- Fixed All Of The Above
 
-v2.1
+v2.5
