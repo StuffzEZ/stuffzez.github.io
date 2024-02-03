@@ -8,7 +8,7 @@ const link = urlParams.get('w');
 
 function paramerterTest(parameter) {
     if (parameter !== undefined){
-        location.replace("home.html")
+        location.replace("home")
     }
 }
 
@@ -19,5 +19,5 @@ paramerterTest(link)
 // Parameter Code
 
 if (link == "web-1"){
-    location.replace("Links/web-1.html")
+    location.replace("Links/web-1")
 }
