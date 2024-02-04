@@ -11,7 +11,6 @@ This Website Is For Items That Are Not On The Normal Website
 ![Google Chrome](https://img.shields.io/badge/Google%20Chrome-4285F4?style=for-the-badge&logo=GoogleChrome&logoColor=white)
 
 ## 
-
 # About
 Nothing Here. Yet...
 
