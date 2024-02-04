@@ -7,10 +7,12 @@ This Website Is For Items That Are Not On The Normal Website
 # About
 Nothing Here. Yet...
 
-# Updates And Version
-- Addded Redirect Links
-- Added Queries
-- Changed Style
-- Fixed All Of The Above
+# Updates
+v1.0 - Addded Redirect Links
+v1.5 - Added Queries
+v2.0 - Changed Style
+v2.5 - Fixed Bugs
+
+# Version
 
 v2.5
