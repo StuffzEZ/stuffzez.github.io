@@ -11,8 +11,8 @@ Nothing Here. Yet...
 - v1.0 - Addded Redirect Links
 - v1.5 - Added Queries
 - v2.0 - Changed Style
-- v2.5 - Fixed Bugs
+- v2.5 - Fixed Bugs And Added Navigation Bar
 
 # Version
 
-v2.5
+v2.5 - Fixed Some Bugs With Queries And Redirect Links And Added Navigation Bar
