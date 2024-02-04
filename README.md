@@ -8,10 +8,10 @@ This Website Is For Items That Are Not On The Normal Website
 Nothing Here. Yet...
 
 # Updates
-v1.0 - Addded Redirect Links
-v1.5 - Added Queries
-v2.0 - Changed Style
-v2.5 - Fixed Bugs
+- v1.0 - Addded Redirect Links
+- v1.5 - Added Queries
+- v2.0 - Changed Style
+- v2.5 - Fixed Bugs
 
 # Version
 
