@@ -19,7 +19,7 @@ Nothing Here. Yet...
 - v1.5 - Added Queries
 - v2.0 - Changed Style
 - v2.5 - Fixed Bugs And Added Navigation Bar
-- v3.0 - Added About Page And Changed Queries
+- v3.0 - Added About Page, Custom 404 Page And Changed Queries
 
 # Version
 
@@ -27,3 +27,4 @@ Nothing Here. Yet...
 - Added About Page
 - Queries Are Now '?act=' Instead Of '?w='
 - Added Query '?act=rl-1' : Reloads The Starting Page (Not The Home Page)
+- Added Custom 404 Page
