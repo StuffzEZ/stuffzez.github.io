@@ -24,3 +24,4 @@
 # v4.0
 - Added Markdown Badge Generator
 - Added Updates.md
+- Updated Home Page
