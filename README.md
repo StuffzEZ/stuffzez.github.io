@@ -26,3 +26,4 @@ Nothing Here. Yet...
 
 ### v4.0
 - Added Badge Generator Tool
+- Updated Home Page
