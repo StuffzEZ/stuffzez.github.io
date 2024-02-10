@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://stuffzez.github.io/stylesheet.css"/>
+    <script src="script.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -11,14 +12,22 @@
     <!-- <img src="https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white" alt="Markdown Badge">
     <pre class="codeprev"><code class="codeprev">![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)</code></pre> -->
     <h2>Solid Badges</h2>
-    <img src="https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=github&logoColor=white" alt="Markdown Badge">
-    <br>
-    <input type="color" id="background_SolidBadge" name="background" value="#ffffff"/>
-    <br>
-    <input type="text" id="text_SolidBadge" name="Image/Logo"/>
+    <p>Example : <img src="https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white" alt="Markdown Badge" style="width: 200px;"></p>
     <br>
     <br>
+    <input type="color" id="background_SolidBadge" name="background_SolidBadge" value="#ffffff"/>
+    <label>Background Colour For Badge</label>
     <br>
-    <button>Generate!</button>
+    <input type="text" id="text_SolidBadge" name="text_SolidBadge"/>
+    <label>Text On Badge</label>
+    <br>
+    <input type="text" id="logo_SolidBadge" name="logo"/>
+    <label>Any Logo Of A Well Known Company/Currency/Programming Language (eg. GitHub, HTML5) <b>[INFO : This Has To Be One Word]</b></label>
+    <br>
+    <br>
+    <br>
+    <h3 style="font-family: 'Roboto', sans-serif; color: rgb(127, 0, 0);">* All Fields Are Required</h3>
+    <button onclick="SolidBadgeGenerate()" style="height: 70px; width: 250px; font-size: 50px; background-color: rgb(42, 38, 38); color: white; border-radius: 50px; border-color: black; border-width: 5px; font-family: 'Roboto', sans-serif;">Generate!</button>
+    <p id="output_SolidBadge">Output : </p>
 </body>
 </html>
