@@ -20,11 +20,9 @@ Nothing Here. Yet...
 - v2.0 - Changed Style
 - v2.5 - Fixed Bugs And Added Navigation Bar
 - v3.0 - Added About Page, Custom 404 Page And Changed Queries
+- v3.5 - Added Badge Generator Tool
 
 # Version
 
-### v3.0
-- Added About Page
-- Queries Are Now '?act=' Instead Of '?w='
-- Added Query '?act=rl-1' : Reloads The Starting Page (Not The Home Page)
-- Added Custom 404 Page
+### v3.5
+- Added Badge Generator Tool
