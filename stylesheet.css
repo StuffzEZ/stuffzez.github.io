@@ -51,7 +51,7 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-code {
+.codeprev {
     background-color: rgba(255, 255, 255, 0.650);
     border-radius: 5px;
     font-size: 25px;
