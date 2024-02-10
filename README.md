@@ -16,13 +16,13 @@ Nothing Here. Yet...
 
 # Updates
 - v1.0 - Addded Redirect Links
-- v1.5 - Added Queries
-- v2.0 - Changed Style
-- v2.5 - Fixed Bugs And Added Navigation Bar
-- v3.0 - Added About Page, Custom 404 Page And Changed Queries
-- v3.5 - Added Badge Generator Tool
+- v2.0 - Added Queries
+- v2.5 - Changed Style
+- v3.0 - Fixed Bugs And Added Navigation Bar
+- v3.5 - Added About Page, Custom 404 Page And Changed Queries
+- v4.0 - Added Badge Generator Tool
 
 # Version
 
-### v3.5
+### v4.0
 - Added Badge Generator Tool
