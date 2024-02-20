@@ -24,6 +24,6 @@ Nothing Here. Yet...
 
 # Version
 
-### v4.0
-- Added Badge Generator Tool
-- Updated Home Page
+### v4.5
+- Removed Badge Generator Tool Due To Issues
+- 100% On Accessability, Performance And Best Practices On A Lighthouse Report On 'home.html'
