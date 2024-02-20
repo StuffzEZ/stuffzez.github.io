@@ -25,3 +25,7 @@
 - Added Markdown Badge Generator
 - Added Updates.md
 - Updated Home Page
+
+# v4.5
+- Removed Badge Generator Tool Due To Issues
+- 100% On Accessability, Performance And Best Practices On A Lighthouse Report On 'home.html'
