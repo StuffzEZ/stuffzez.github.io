@@ -12,7 +12,7 @@ This Website Is For Items That Are Not On The Normal Website
 
 ## 
 # About
-Nothing Here. Yet...
+Go To 'Updates.md' For All Updates
 
 # Updates
 - v1.0 - Addded Redirect Links
@@ -21,6 +21,7 @@ Nothing Here. Yet...
 - v3.0 - Fixed Bugs And Added Navigation Bar
 - v3.5 - Added About Page, Custom 404 Page And Changed Queries
 - v4.0 - Added Badge Generator Tool
+- v4.5 - Removed Badge Generator
 
 # Version
 
