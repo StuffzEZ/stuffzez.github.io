@@ -25,6 +25,6 @@ Go To 'Updates.md' For All Updates
 
 # Version
 
-### v4.5
-- Removed Badge Generator Tool Due To Issues
-- 100% On Accessability, Performance And Best Practices On A Lighthouse Report On 'home.html'
+### v4.6
+- Fixed Problem With 404 Page Where If You Go To https://stuffzez.github.io/ExampleFolder/ExamplePage (As An Example) There Is No Style On The Page
+- Added Folders For HTML5 Games
