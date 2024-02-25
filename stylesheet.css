@@ -56,3 +56,22 @@ body {
     border-radius: 5px;
     font-size: 25px;
 }
+
+input {
+    border-radius: 10px;
+    height: 35px;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    background-color: rgb(255,255,255);
+}
+
+button {
+    border-radius: 25px;
+    height: 35px;
+    width: 70px;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    background-color: rgb(255,255,255);
+}
