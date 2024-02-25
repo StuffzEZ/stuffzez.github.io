@@ -12,3 +12,7 @@ function change()
 clickBTN.addEventListener('mouseover', () => {
   change()
 });
+
+function updatesSHOW() {
+    window.location.replace("https://github.com/StuffzEZ/stuffzez.github.io/blob/main/Updates.md")
+}
