@@ -1,3 +1,3 @@
 function PlayBTN1() {
-    window.location.replace("https://stuffzez.github.io/Games/source/000001/index")
+    window.location.replace("https://stuffzez.github.io/Games/Files/000001/index")
 }
