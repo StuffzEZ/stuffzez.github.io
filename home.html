@@ -38,7 +38,7 @@
           }
           document.addEventListener("DOMContentLoaded", () => {
             if (typeof grecaptcha === "object") {
-              document.querySelector('.g-recaptcha').dataset.callback = "unHideButton"
+              document.getElementById('captchaeventtargetstfz').dataset.callback = "unHideButton"
             } else {
               console.log("Unable to add `data-callback` to grecaptcha as it doesn't exist.");
             }
@@ -63,7 +63,7 @@
     <h2>If You Are Looking For My Other Website, Please Verify.</h3>
     <br>
     <br>
-    <div class="g-recaptcha" data-sitekey="6Lc5lYspAAAAAJyt-xT99GmQ3VG2aDFxBbwpBBJm"></div>
+    <div class="g-recaptcha" data-sitekey="6Lc5lYspAAAAAJyt-xT99GmQ3VG2aDFxBbwpBBJm" id="captchaeventtargetstfz"></div>
     <button href="https://stuffzez.github.io/home?redirect=mainweb_209fndskw3ls92hf" id="submitBTN" disabled style="width: 90px;">Submit</button>
 </body>
 </html>
