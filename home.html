@@ -30,6 +30,19 @@
         if (action == "mainweb_209fndskw3ls92hf"){
             location.replace("Links/web-1")
         }
+
+        function unHideButton() {
+            if (grecaptcha.getResponse().length > 0) {
+              document.getElementById('submitBtn').disabled = false
+            }
+          }
+          document.addEventListener("DOMContentLoaded", () => {
+            if (typeof grecaptcha === "object") {
+              document.querySelector('.g-recaptcha').dataset.callback = "unHideButton"
+            } else {
+              console.log("Unable to add `data-callback` to grecaptcha as it doesn't exist.");
+            }
+        });
     </script>
     <link rel="icon" type="image/x-icon" href="library/images/stuffzezlogo.png">
     <title>StuffzEZ Extras | Home</title>
@@ -50,7 +63,7 @@
     <h3>If You Are Looking For My Other Website, Please Verify.</h3>
     <br>
     <br>
-
-    <div class="g-recaptcha" data-sitekey="6Lc5lYspAAAAAJyt-xT99GmQ3VG2aDFxBbwpBBJm" href="https://stuffzez.github.io/home?redirect=mainweb_209fndskw3ls92hf"></div>
+    <div class="g-recaptcha" data-sitekey="6Lc5lYspAAAAAJyt-xT99GmQ3VG2aDFxBbwpBBJm"></div>
+    <button href="https://stuffzez.github.io/home?redirect=mainweb_209fndskw3ls92hf" disabled>Submit</button>
 </body>
 </html>
