@@ -30,19 +30,6 @@
         if (action == "mainweb_209fndskw3ls92hf"){
             location.replace("Links/web-1")
         }
-
-        function unHideButton() {
-            if (grecaptcha.getResponse().length > 0) {
-              document.getElementById('submitBtn').disabled = false
-            }
-          }
-          document.addEventListener("DOMContentLoaded", () => {
-            if (typeof grecaptcha === "object") {
-              document.getElementById('captchaeventtargetstfz').dataset.callback = "unHideButton"
-            } else {
-              console.log("Unable to add `data-callback` to grecaptcha as it doesn't exist.");
-            }
-        });
     </script>
     <link rel="icon" type="image/x-icon" href="library/images/stuffzezlogo.png">
     <title>StuffzEZ Extras | Home</title>
