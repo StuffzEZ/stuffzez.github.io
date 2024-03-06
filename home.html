@@ -6,6 +6,31 @@
     <meta name="description" content="The Home Page For The StuffzEZ Extras Website">
     <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        // Setup Parameters
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const action = urlParams.get('redirect');
+
+        // Code To Check If Parameters Exist
+
+        function paramerterTest(parameter) {
+            if (parameter !== undefined){
+                console.log('No Parameters - Cancelling Redirect')
+            }
+        }
+
+        // Check If Parameters Exist
+
+        paramerterTest(action)
+
+        // Parameter Code
+
+        if (action == "mainweb_209fndskw3ls92hf"){
+            location.replace("Links/web-1")
+        }
+    </script>
     <link rel="icon" type="image/x-icon" href="library/images/stuffzezlogo.png">
     <title>StuffzEZ Extras | Home</title>
 </head>
@@ -23,7 +48,7 @@
     <p>If You Are Looking For My Other Website, Please Verify.</p>
     <br>
     <br>
-    <form action="https://stuffzez.github.io/Links/web-1.html" method="POST">
+    <form method="POST">
       <div class="g-recaptcha" data-sitekey="6Lc5lYspAAAAAJyt-xT99GmQ3VG2aDFxBbwpBBJm"></div>
       <br/>
       <input type="submit" value="Submit">
