@@ -38,3 +38,10 @@
 - Added Games
 - Started Adding ReCaptcha
 - Added Link To Other Website
+
+# v5.5
+- Added Q&A
+- Updated Navigation Bar
+- Fix Navigation Bar Bug
+- Added Search Analytics On Q&A Tab
+- Now On Google Search
