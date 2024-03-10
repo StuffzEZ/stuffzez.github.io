@@ -28,5 +28,6 @@ Go To 'Updates.md' For All Updates
 # Version
 
 ### v5.0
+- Added Games
 - Started Adding ReCaptcha
 - Added Link To Other Website
