@@ -23,11 +23,14 @@ Go To 'Updates.md' For All Updates
 - v4.0 - Added Badge Generator Tool
 - v4.5 - Removed Badge Generator
 - v4.6 - Fixed Bugs And Added Support For Games That Will Come In The Future
-
+- v5.0 - Added Games And ReCaptcha
+- v5.5 - Added Q&A
 
 # Version
 
-### v5.0
-- Added Games
-- Started Adding ReCaptcha
-- Added Link To Other Website
+### v5.5
+- Added Q&A
+- Updated Navigation Bar
+- Fix Navigation Bar Bug
+- Added Search Analytics On Q&A Tab
+- Now On Google Search
