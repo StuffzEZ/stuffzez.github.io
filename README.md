@@ -22,9 +22,11 @@ Go To 'Updates.md' For All Updates
 - v3.5 - Added About Page, Custom 404 Page And Changed Queries
 - v4.0 - Added Badge Generator Tool
 - v4.5 - Removed Badge Generator
+- v4.6 - Fixed Bugs And Added Support For Games That Will Come In The Future
+
 
 # Version
 
-### v4.6
-- Fixed Problem With 404 Page Where If You Go To https://stuffzez.github.io/ExampleFolder/ExamplePage (As An Example) There Is No Style On The Page
-- Added Folders For HTML5 Games
+### v5.0
+- Started Adding ReCaptcha
+- Added Link To Other Website
