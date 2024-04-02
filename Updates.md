@@ -44,4 +44,11 @@
 - Updated Navigation Bar
 - Fix Navigation Bar Bug
 - Added Search Analytics On Q&A Tab
-- Now On Google Search
+- Working On Getting Onto Google Search
+
+# v5.6
+- Tested Website On Safari
+- Tested Website On Opera GX
+- Added Contact Section On README.md (This File)
+- Added Discussions
+- Added More Badges To README.md
