@@ -52,3 +52,4 @@
 - Added Contact Section On README.md (This File)
 - Added Discussions
 - Added More Badges To README.md
+- Moved CSS And Javascript To 'Library' Folder
