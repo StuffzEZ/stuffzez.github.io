@@ -37,3 +37,4 @@ Go To 'Updates.md' For All Updates
 ### v5.6
 - Tested Website On Safari
 - Tested Website On Opera GX
+- Added Contact Section On README.md (This File)
