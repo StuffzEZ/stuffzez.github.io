@@ -31,6 +31,7 @@ Go To [![Updates Markdown](https://img.shields.io/static/v1?message=Updates.md&l
 - v4.6 - Fixed Bugs And Added Support For Games That Will Come In The Future
 - v5.0 - Added Games And ReCaptcha
 - v5.5 - Added Q&A
+- v5.6 - Fixes And Enhancements
 
 # Version
 
@@ -40,3 +41,4 @@ Go To [![Updates Markdown](https://img.shields.io/static/v1?message=Updates.md&l
 - Added Contact Section On README.md (This File)
 - Added Discussions
 - Added More Badges To README.md
+- Moved CSS And Javascript To 'Library' Folder
