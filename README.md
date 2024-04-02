@@ -39,4 +39,4 @@ Go To [![Updates Markdown](https://img.shields.io/static/v1?message=Updates.md&l
 - Tested Website On Opera GX
 - Added Contact Section On README.md (This File)
 - Added Discussions
-- 
+- Added More Badges To README.md
