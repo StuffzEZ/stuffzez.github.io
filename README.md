@@ -8,7 +8,13 @@ This Website Is For Items That Are Not On The Normal Website
 
 ## GitHub Pages Website Proved To Work On On
 ![Edge](https://img.shields.io/badge/Edge-0078D7?style=for-the-badge&logo=Microsoft-edge&logoColor=white)
-![Google Chrome](https://img.shields.io/badge/Google%20Chrome-4285F4?style=for-the-badge&logo=GoogleChrome&logoColor=orange)
+![Google Chrome](https://img.shields.io/badge/Google%20Chrome-FFA500?style=for-the-badge&logo=GoogleChrome&logoColor=white)
+![Safari](https://img.shields.io/badge/Safari-000000?style=for-the-badge&logo=Safari&logoColor=white)
+![Opera GX](https://img.shields.io/badge/Opera%20GX-FF1B2D?style=for-the-badge&logo=Opera%20GX&logoColor=white)
+
+## Contact
+[![StuffzEZ On Youtube](https://img.shields.io/badge/Youtube-FF0000?style=for-the-badge&logo=Youtube&logoColor=white)](https://youtube.com/@YT.StuffzEZ)
+[![StuffzEZ On Twitch](https://img.shields.io/badge/Twitch-9347FF?style=for-the-badge&logo=twitch&logoColor=white)](https://www.twitch.tv/stuffzez_live)
 
 ## 
 # About
@@ -28,9 +34,6 @@ Go To 'Updates.md' For All Updates
 
 # Version
 
-### v5.5
-- Added Q&A
-- Updated Navigation Bar
-- Fix Navigation Bar Bug
-- Added Search Analytics On Q&A Tab
-- Now On Google Search
+### v5.6
+- Tested Website On Safari
+- Tested Website On Opera GX
