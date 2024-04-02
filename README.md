@@ -18,7 +18,7 @@ This Website Is For Items That Are Not On The Normal Website
 
 ## 
 # About
-Go To 'Updates.md' For All Updates
+Go To [![Updates Markdown](https://img.shields.io/static/v1?message=Updates.md&logo=markdown&labelColor=000000&color=303030&logoColor=white&label=%20)](https://github.com/StuffzEZ/stuffzez.github.io/blob/main/Updates.md) For All Updates
 
 # Updates
 - v1.0 - Addded Redirect Links
@@ -38,3 +38,5 @@ Go To 'Updates.md' For All Updates
 - Tested Website On Safari
 - Tested Website On Opera GX
 - Added Contact Section On README.md (This File)
+- Added Discussions
+- 
