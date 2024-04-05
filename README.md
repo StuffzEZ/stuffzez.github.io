@@ -32,9 +32,11 @@ Go To [![Updates Markdown](https://img.shields.io/static/v1?message=Updates.md&l
 - v5.0 - Added Games And ReCaptcha
 - v5.5 - Added Q&A
 - v5.6 - Fixes And Enhancements
-- v6.0 - Site Offline Temporarilly
+- v5.7 - Site Offline Temporarilly
 
 # Version
 
-### v6.0
+### v5.7
 - Site Put Offline Temporarilly
+- Add Cookie Banner To Put Site Back Online
+- 11 Pages
