@@ -53,3 +53,6 @@
 - Added Discussions
 - Added More Badges To README.md
 - Moved CSS And Javascript To 'Library' Folder
+
+# v6.0
+- Site Put Offline Temporarilly
