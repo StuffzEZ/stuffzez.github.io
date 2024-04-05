@@ -32,13 +32,9 @@ Go To [![Updates Markdown](https://img.shields.io/static/v1?message=Updates.md&l
 - v5.0 - Added Games And ReCaptcha
 - v5.5 - Added Q&A
 - v5.6 - Fixes And Enhancements
+- v6.0 - Site Offline Temporarilly
 
 # Version
 
-### v5.6
-- Tested Website On Safari
-- Tested Website On Opera GX
-- Added Contact Section On README.md (This File)
-- Added Discussions
-- Added More Badges To README.md
-- Moved CSS And Javascript To 'Library' Folder
+### v6.0
+- Site Put Offline Temporarilly
