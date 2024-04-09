@@ -19,7 +19,7 @@ paramerterTest(action)
 // Parameter Code
 
 if (action == "lweb-1"){
-    location.replace("Links/web-1")
+    location.replace("https://sites.google.com/view/stuffzez-yt-website")
 }
 if (action == "lweb-3097501"){
     location.replace("404")
