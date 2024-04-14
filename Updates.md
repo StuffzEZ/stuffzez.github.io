@@ -54,5 +54,8 @@
 - Added More Badges To README.md
 - Moved CSS And Javascript To 'Library' Folder
 
-# v6.0
+# v5.7
 - Site Put Offline Temporarilly
+- Removed Recaptcha
+- Website Back Online
+
