@@ -38,5 +38,5 @@ Go To [![Updates Markdown](https://img.shields.io/static/v1?message=Updates.md&l
 
 ### v5.7
 - Site Put Offline Temporarilly
-- Add Cookie Banner To Put Site Back Online
-- 11 Pages
+- Removed Recaptcha
+- Website Back Online
