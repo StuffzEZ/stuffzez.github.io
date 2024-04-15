@@ -39,4 +39,5 @@ Go To [![Updates Markdown](https://img.shields.io/static/v1?message=Updates.md&l
 ### v5.7
 - Site Put Offline Temporarilly
 - Removed Recaptcha
+- Removed Q&A
 - Website Back Online
