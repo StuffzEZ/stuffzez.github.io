@@ -57,5 +57,6 @@
 # v5.7
 - Site Put Offline Temporarilly
 - Removed Recaptcha
+- Removed Q&A
 - Website Back Online
 
