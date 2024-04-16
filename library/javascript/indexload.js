@@ -33,3 +33,7 @@ if (action == "rl-2"){
 if (action == "fdj93qjf930"){
     console.log("Loaded index.html?act=fdj93qjf930")
 }
+
+if (action == "lweb-2"){
+    location.replace("https://github.com/StuffzEZ/stuffzez.github.io")
+}
