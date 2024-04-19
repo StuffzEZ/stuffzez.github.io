@@ -8,10 +8,7 @@ function paramerterTest(parameter) {
     }
 }
 
-// Check If Parameters Exist
-
-paramerterTest(previouspage)
-
 function goBack(){
+    paramerterTest(previouspage)
     location.replace(previouspage)
 }
