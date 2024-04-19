@@ -16,9 +16,10 @@ This Website Is For Items That Are Not On The Normal Website
 [![StuffzEZ On Youtube](https://img.shields.io/badge/Youtube-FF0000?style=for-the-badge&logo=Youtube&logoColor=white)](https://youtube.com/@YT.StuffzEZ)
 [![StuffzEZ On Twitch](https://img.shields.io/badge/Twitch-9347FF?style=for-the-badge&logo=twitch&logoColor=white)](https://www.twitch.tv/stuffzez_live)
 
-## 
-# About
-Go To [![Updates Markdown](https://img.shields.io/static/v1?message=Updates.md&logo=markdown&labelColor=262626&color=303030&logoColor=white&label=%20)](https://github.com/StuffzEZ/stuffzez.github.io/blob/main/Updates.md) For All Updates
+##
+
+# Links
+- [Updates](#Updates)
 
 # Updates
 - v1.0 - Addded Redirect Links
@@ -41,3 +42,5 @@ Go To [![Updates Markdown](https://img.shields.io/static/v1?message=Updates.md&l
 - Removed Recaptcha
 - Removed Q&A
 - Website Back Online
+
+For All Updates, Go To [![Updates Markdown](https://img.shields.io/static/v1?message=Updates.md&logo=markdown&labelColor=262626&color=303030&logoColor=white&label=%20)](https://github.com/StuffzEZ/stuffzez.github.io/blob/main/Updates.md) (Click On It)
