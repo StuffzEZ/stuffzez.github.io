@@ -24,6 +24,7 @@ This Website Is For Items That Are Not On The Normal Website
 - [About](#About)
 
 # About
+[This Project](https://stuffzez.github.io) Is A Website For Many Things. If This Project Does Not Get Updated In A Long Time, It Will Be Updated Soon. If This Project Gets Taken Down, I'll Try To Get It Back Up (If I Cannot I Will Say On My Github [Profile](https://stuffzez.github.io/github-profile)). If You Like This Project, Please Report Issues, Bugs (Not Sequrity Issues) In The [Issues Tab](https://github.com/StuffzEZ/stuffzez.github.io/issues) Or In The  [Disscussions Tab](https://github.com/StuffzEZ/stuffzez.github.io/discussions)
 
 # Updates
 - v1.0 - Addded Redirect Links
