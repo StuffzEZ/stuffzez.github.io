@@ -45,5 +45,5 @@ This Website Is For Items That Are Not On The Normal Website
 - Removed Q&A
 - Website Back Online
 
-# All Updates
+# [All Updates]
 For All Updates, Go To [![Updates Markdown](https://img.shields.io/static/v1?message=Updates.md&logo=markdown&labelColor=262626&color=303030&logoColor=white&label=%20)](https://github.com/StuffzEZ/stuffzez.github.io/blob/main/Updates.md) (Click On It)
