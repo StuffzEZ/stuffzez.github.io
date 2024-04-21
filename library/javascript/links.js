@@ -7,3 +7,7 @@ if (currentUrl == "https://stuffzez.github.io/l/cj0k"){
 if (currentUrl == "https://stuffzez.github.io/l/dl30"){
   location.replace("https://stuffzez.github.io/other/welcome?prev=https://youtube.com/@YT.StuffzEZ")
 }
+
+if (currentUrl == "https:/stuffzez.github.io/generators/markdown"){
+  location.replace("https://stuffzez.github.io/generators/dashboard")
+}
