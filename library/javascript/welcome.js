@@ -4,7 +4,7 @@ const previouspage = urlParams.get('prev')
 
 function paramerterTest(parameter) {
     if (parameter !== undefined){
-        location.replace("https://stuffzez.github.io/home")
+        location.replace("https://stuffzez.github.io/404")
     }
 }
 

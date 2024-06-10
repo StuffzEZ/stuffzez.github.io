@@ -11,3 +11,7 @@ if (currentUrl == "https://stuffzez.github.io/l/dl30"){
 if (currentUrl == "https:/stuffzez.github.io/generators/markdown"){
   location.replace("https://stuffzez.github.io/generators/dashboard")
 }
+
+if (currentUrl == "https://stuffzez.github.io/l/dl30_1"){
+  location.replace("https://stuffzez.github.io/other/welcome?prev=https://linktr.ee/StuffzEZ")
+}
