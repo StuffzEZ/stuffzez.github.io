@@ -15,3 +15,7 @@ if (currentUrl == "https:/stuffzez.github.io/generators/markdown"){
 if (currentUrl == "https://stuffzez.github.io/l/dl30_1"){
   location.replace("https://stuffzez.github.io/other/welcome?prev=https://linktr.ee/StuffzEZ")
 }
+
+if (currentUrl == "https://stuffzez.github.io/l/fh48"){
+  location.replace("https://stuffzez.github.io/other/yt/stuffzez/videolibrary")
+}
