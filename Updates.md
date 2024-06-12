@@ -60,3 +60,15 @@
 - Removed Q&A
 - Website Back Online
 
+# v5.8
+- Small Bug Fixes
+- Updated Links
+- Updated The Welcome Page
+- Added New Link
+- Changed Design On The Welcome Page
+
+# v6.0
+- Added New Link(s)
+- Added A Video Library
+- Added "Sub Websites" (Small Websites Inside The Website)
+- Fixed Page Icon Issue On The 404 Page
