@@ -39,13 +39,15 @@ This Website Is For Items That Are Not On The Normal Website
 - v5.5 - Added Q&A
 - v5.6 - Fixes And Enhancements
 - v5.7 - Site Offline Temporarilly
+- v5.8 - Bug Fixes
+- v6.0 - Added Support For Other Websites
 
 # Version
 
-### v5.7
-- Site Put Offline Temporarilly
-- Removed Recaptcha
-- Removed Q&A
-- Website Back Online
+### v6.0
+- Added New Link(s)
+- Added A Video Library
+- Added "Sub Websites" (Small Websites Inside The Website)
+- Fixed Page Icon Issue On The 404 Page
 
 For All Updates, Go To [![Updates Markdown](https://img.shields.io/static/v1?message=Updates.md&logo=markdown&labelColor=262626&color=303030&logoColor=white&label=%20)](https://github.com/StuffzEZ/stuffzez.github.io/blob/main/Updates.md) (Click On It)
