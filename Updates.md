@@ -72,3 +72,7 @@
 - Added A Video Library
 - Added "Sub Websites" (Small Websites Inside The Website)
 - Fixed Page Icon Issue On The 404 Page
+
+# v6.1
+- Added New Link(s)
+- Re-Organised Files

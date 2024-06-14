@@ -41,13 +41,12 @@ This Website Is For Items That Are Not On The Normal Website
 - v5.7 - Site Offline Temporarilly
 - v5.8 - Bug Fixes
 - v6.0 - Added Support For Other Websites
+- v6.1 - Re-Organised Files To Make It Easier When Coding
 
 # Version
 
-### v6.0
+### v6.1
 - Added New Link(s)
-- Added A Video Library
-- Added "Sub Websites" (Small Websites Inside The Website)
-- Fixed Page Icon Issue On The 404 Page
+- Re-Organised Files
 
 For All Updates, Go To [![Updates Markdown](https://img.shields.io/static/v1?message=Updates.md&logo=markdown&labelColor=262626&color=303030&logoColor=white&label=%20)](https://github.com/StuffzEZ/stuffzez.github.io/blob/main/Updates.md) (Click On It)
