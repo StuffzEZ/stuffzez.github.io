@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@600&display=swap');
+
+body {
+    background: linear-gradient(to bottom, #00165f, #002a89, #5f0090, #f46eff);
+    height: 100%;
+    margin: 10px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+html {
+    height: 100%;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+h1 {
+    font-family: 'Work Sans', sans-serif;
+    color: white;
+    font-size: 50px;
+}
+
+h2 {
+    font-family: 'Work Sans', sans-serif;
+    color: white;
+    font-size: 35px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+.footer p {
+    font-size: 20px;
+}
