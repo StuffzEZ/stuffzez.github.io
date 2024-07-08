@@ -23,3 +23,7 @@ if (currentUrl == "https://stuffzez.github.io/l/fh48"){
 if (currentUrl == "https://stuffzez.github.io/about"){
   location.replace("https://stuffzez.github.io/src/web/about")
 }
+
+if (currentUrl == "https://stuffzez.github.io/src/yt/stuffzez/videolibrary"){
+  location.replace("https://stuffzez.github.io/src/web/leaving-page?prev=https://stuffzez.github.io&to=https://youtube.com/@YT.StuffzEZ")
+}
