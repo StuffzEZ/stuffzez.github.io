@@ -8,7 +8,7 @@ const action = urlParams.get('act');
 
 function paramerterTest(parameter) {
     if (parameter !== undefined){
-        location.replace("home")
+        location.replace("home?version=choose")
     }
 }
 
