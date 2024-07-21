@@ -8,13 +8,11 @@ const action = urlParams.get('act');
 
 function paramerterTest(parameter) {
     if (parameter !== undefined){
-        location.replace("home?version=choose")
+        location.replace("home")
     }
 }
 
 // Check If Parameters Exist
-
-paramerterTest(action)
 
 // Parameter Code
 
