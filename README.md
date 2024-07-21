@@ -1,6 +1,7 @@
 # StuffzEZ Extras Website
 This Website Is For Items That Are Not On The Normal Website
 <br>
+## NOTE: THIS WEBSITE DOES NOT LOG UPDATES THE SAME AS BEFORE, SCROLL DOWN OR CLICK [HERE](#Version) TO SEE THE CURRENT UPDATE WHICH IS RECORDED IN WORDS. YOU CAN ALSO CLICK [HERE](https://github.com/StuffzEZ/stuffzez.github.io/commits) TO SEE THE NEW UPDATE LOG!
 <br>
 [![Made By StuffzEZ Badge](https://img.shields.io/badge/StuffzEZ-Made_By?label=Made%20By&labelColor=blue&color=orange)](https://bit.ly/m/StuffzEZ)
 [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/StuffzEZ/stuffzez.github.io)
@@ -45,8 +46,8 @@ This Website Is For Items That Are Not On The Normal Website
 
 # Version
 
-### v6.1
-- Added New Link(s)
-- Re-Organised Files
+### v6.8
+- New Update System (Click [Here](https://github.com/StuffzEZ/stuffzez.github.io/commits))
+- Minor Changes
 
 For All Updates, Go To [![Updates Markdown](https://img.shields.io/static/v1?message=Updates.md&logo=markdown&labelColor=262626&color=303030&logoColor=white&label=%20)](https://github.com/StuffzEZ/stuffzez.github.io/blob/main/Updates.md) (Click On It)

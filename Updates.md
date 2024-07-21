@@ -1,3 +1,7 @@
+# Updates
+
+## NOTE: THIS WEBSITE DOES NOT LOG UPDATES THE SAME AS BEFORE, SCROLL DOWN OR CLICK [HERE](# v6.8) TO SEE THE CURRENT UPDATE WHICH IS RECORDED IN WORDS. YOU CAN ALSO CLICK [HERE](https://github.com/StuffzEZ/stuffzez.github.io/commits) TO SEE THE NEW UPDATE LOG!
+
 # v1.0
 - Added index.html
 - Added README.md
@@ -76,3 +80,7 @@
 # v6.1
 - Added New Link(s)
 - Re-Organised Files
+
+# v6.8
+- New Update System (Click [Here](https://github.com/StuffzEZ/stuffzez.github.io/commits))
+- Minor Changes
