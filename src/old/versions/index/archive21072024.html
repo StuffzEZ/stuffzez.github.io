@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="If This Page Stays Blank Then Check If Javascript Is Enabled On Your Browser. If It Is, Go To 'https://stuffzez.github.io/home' If This Does Not Work, Please Post A Discussion About It In The Discussions Tab On The 'stuffzez.github.io' GitHub Repository!">
+    <script>
+        // Setup Parameters
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const action = urlParams.get('act');
+
+// Code To Check If Parameters Exist
+
+function paramerterTest(parameter) {
+    if (parameter !== undefined){
+        location.replace("home")
+    }
+}
+
+// Check If Parameters Exist
+
+// Parameter Code
+
+if (action == "lweb-1"){
+    location.replace("https://sites.google.com/view/stuffzez-yt-website")
+}
+if (action == "lweb-3097501"){
+    location.replace("https://stuffzez.github.io/404")
+}
+if (action == "rl-1"){
+    location.reload()
+}
+if (action == "rl-2"){
+    location.replace("index.html?act=lweb-1")
+}
+if (action == "fdj93qjf930"){
+    console.log("Loaded index.html?act=fdj93qjf930")
+}
+
+if (action == "lweb-2"){
+    location.replace("https://github.com/StuffzEZ/stuffzez.github.io")
+}
+
+    </script>
+    <link rel="stylesheet" type="text/css" href="https://stuffzez.github.io/library/css/mainstylesheet.css"/>
+    <title>StuffzEZ Extras | Loading</title>
+</head>
+<body>
+<!-- Loading Page -->   
+ <h1>Perameters</h1>
+ <br>
+ <p>?act=lweb-1 - Go To Other Website</p>
+ <br>
+ <p>?act=lweb-3097501 - Go To 404</p> 
+ <br>
+ <p>?act=rl-1 - Reloads The Page</p>
+ <br>
+ <p>?act=rl-2 - Reloads The Page Then Goes To Other Website</p>
+ <br>
+ <p>?act=fdj93qjf930 - Sends A Message In The Console</p>
+ <br>
+ <p>?act=lweb-2 - Shows The Github Repository</p>
+</body>
+</html>
