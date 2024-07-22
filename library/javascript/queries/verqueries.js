@@ -27,3 +27,7 @@ if (version == "VER_DOCS") {
 if (version == "VER_OLD") {
     location.replace('https://stuffzez.github.io/src/old/indexhome')
 }
+
+if (version == "VER_30ARC") {
+    location.replace('https://stuffzez.github.io/src/old/versions/v3.0/archive22072024/index')
+}
