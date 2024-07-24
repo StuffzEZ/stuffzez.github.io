@@ -20,14 +20,18 @@ if (version == "VER_CHOOSE") {
     location.replace('https://stuffzez.github.io/src/web/redirects/redirect_ver_29471')
 }
 
-if (version == "VER_DOCS") {
-    location.replace('https://stuffzez.github.io/docs/indexhome')
-}
-
 if (version == "VER_OLD") {
     location.replace('https://stuffzez.github.io/src/old/indexhome')
 }
 
 if (version == "VER_30ARC") {
     location.replace('https://stuffzez.github.io/src/old/versions/v3.0/archive22072024/index')
+}
+
+if (version == "DOCS") {
+    location.replace("https://stuffzez.github.io/docs/index")
+}
+
+if (version == "NORM") {
+    location.replace("https://stuffzez.github.io/")
 }

@@ -16,6 +16,10 @@ if (currentUrl == "https://stuffzez.github.io/l/dl30_1"){
   location.replace("https://stuffzez.github.io/src/welcome-pages/main?prev=https://linktr.ee/StuffzEZ")
 }
 
+if (currentUrl == "https://stuffzez.github.io/l/dl30_2"){
+  location.replace("https://stuffzez.github.io/src/web/leaving-page?to=https://linktr.ee/StuffzEZ&prev=https://stuffzez.github.io")
+}
+
 if (currentUrl == "https://stuffzez.github.io/l/fh48"){
   location.replace("https://stuffzez.github.io/src/yt/stuffzez/videolibrary")
 }
@@ -26,4 +30,12 @@ if (currentUrl == "https://stuffzez.github.io/about"){
 
 if (currentUrl == "https://stuffzez.github.io/src/yt/stuffzez/videolibrary"){
   location.replace("https://stuffzez.github.io/src/web/leaving-page?prev=https://stuffzez.github.io&to=https://youtube.com/@YT.StuffzEZ")
+}
+
+if (currentUrl == "https://stuffzez.github.io/l/lweb-1"){
+  location.replace("https://stuffzez.github.io/src/web/leaving-page?to=https://sites.google.com/view/stuffzez-yt-website/home&prev=https://stuffzez.github.io")
+}
+
+if (currentUrl == "https://stuffzez.github.io/src/web/redirects/redirect_ver_29471"){
+  location.replace("https://stuffzez.github.io/src/web/ver_choose")
 }
