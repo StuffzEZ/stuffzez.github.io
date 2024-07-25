@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+        .show {
+            width: 840px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #f0d58c;
+            height: 1025px;
+            text-align: center;
+            margin-top: 0;
+            vertical-align: top;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-family: "Roboto Serif", serif;
+        }
+
+        p {
+            font-size: 20px;
+            font-family: "Roboto Mono", monospace;
+        }
+    </style>
+    <script>
+    function func() {
+        const fileinput = document.getElementById('fileinput');
+    const file = fileinput.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+            const fileContent = e.target.result;
+            const contentDiv = document.getElementById('fileContent');
+            
+            // Clear previous content
+            contentDiv.innerHTML = '';
+
+            // Create a new <p> element for the file content
+            const p = document.createElement('p');
+            p.textContent = fileContent;
+            contentDiv.appendChild(p);
+        };
+        
+        reader.onerror = function(e) {
+            console.error('Error reading file', e);
+        };
+
+        reader.readAsText(file);
+    } else {
+        console.error('No file selected');
+    }
+
+    }
+    </script>
+    <title>StuffzEZ Extras | Document Styler</title>
+</head>
+<body>
+    <p>Choose A .txt File To Show In The Secret Documents Folder!</p>
+    <input type="file" id="fileinput" accept=".txt">
+    <button onclick="func()">Load!</button>
+    <div class="show">
+        <h1>TOP SECRET DOCUMENT</h1>
+        <div id="fileContent" style="white-space: pre-wrap; margin-top: 20px;"></div>
+    </div>
+</body>
+</html>
