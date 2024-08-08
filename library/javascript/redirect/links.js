@@ -39,3 +39,7 @@ if (currentUrl == "https://stuffzez.github.io/l/lweb-1"){
 if (currentUrl == "https://stuffzez.github.io/src/web/redirects/redirect_ver_29471"){
   location.replace("https://stuffzez.github.io/src/web/ver_choose")
 }
+
+if (currentUrl == "https://stuffzez.github.io/OllieTheGamer"){
+  location.replace("https://olliegamer59.github.io")
+}
