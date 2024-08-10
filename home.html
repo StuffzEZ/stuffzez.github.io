@@ -6,19 +6,72 @@
     <meta name="description" content="The Home Page For The StuffzEZ Extras Website">
     <link rel="stylesheet" type="text/css" href="https://stuffzez.github.io/library/css/mainstylesheet.css"/>
     <link rel="icon" type="image/x-icon" href="https://stuffzez.github.io/library/images/stuffzezlogo.png">
+    <script>
+        fetch('https://api.github.com/repos/StuffzEZ/stuffzez.github.io/commits?per_page=1')
+  .then(res => res.json())
+  .then(res => {
+let inputString = res[0].commit.message;
+let parts = inputString.split('\n\n');
+    document.getElementById('message').innerHTML = parts[0]
+    document.getElementById('desc').innerHTML = parts[1]
+  })
+  fetch('https://api.github.com/repos/StuffzEZ/stuffzez.github.io/commits?per_page=1')
+  .then(res => res.json())
+  .then(res => {
+    var output = "Commit By: " + res[0].commit.author.name
+    document.getElementById('author').innerHTML = output
+  })
+    </script>
+    <style>
+        div.footer {
+    height:250px;
+    margin-right:10px;
+    position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(21, 21, 0);
+        }
+        div.commit {
+            float:left;
+            margin-right:5px;
+        }
+        div.contact {
+            float: right;
+            margin-left:5px;
+            text-align: right;
+        }
+    </style>
     <title>StuffzEZ Extras | Home</title>
 </head>
 <body>
     <div class="topnav">
-        <a href="https://stuffzez.github.io/docs/demos/cooldocs/index" target="_blank" style="background-color: red; width: 100%;">NEW UPDATE: CLICK HERE TO TEST IT OUT!</a>
+        <a href="https://stuffzez.github.io/docs/demos/cooldocs/index" target="_blank" style="background-color: rgb(4, 159, 255); width: 100%;">I Forgot To Create A Different Way To Get To This So I Will Just Make It Blue - Text Styler</a>
     </div>
     <div class="topnav">
         <a class="active" href="home">Home</a>
         <a href="about">About</a>
         <a href="https://stuffzez.github.io/src/web/leaving-page?to=https://github.com/StuffzEZ/stuffzez.github.io&prev=https://stuffzez.github.io">GitHub</a>
-      </div>
+        <a href="https://stuffzez.github.io/docs/index">Docs</a>
+    </div>
     <h1>Welcome To The StuffzEZ Extras Website!</h1>
     <br>
     <p>If You Are Looking For My Main Website, Please Click <a href="https://sites.google.com/view/stuffzez-yt-website">Here.</a></p>
+    <div class="footer">
+        <div class="commit">
+            <p>Latest Commit On <a href="https://github.com/StuffzEZ/stuffzez.github.io">GitHub</a></p>
+            <br>
+            <h3 id="message" class="commit">Loading...</h3>
+            <h3 id="desc" class="commit">Loading...</h3>
+            <h3 id="author" class="commit">Loading...</h3>
+        </div>
+        <div class="contact">
+            <p>Contact & Info</p>
+            <p>This Website Was Made By</p>
+            <p><a href="https://linktr.ee/StuffzEZ">StuffzEZ</a></p>
+            <p>View My Channel <a href="https://youtube.com/@YT.StuffzEZ">Here</a></p>
+            <p>Hope You Enjoyed! :)</p>
+        </div>
+    </div>
 </body>
 </html>
