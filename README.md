@@ -1,8 +1,6 @@
 # StuffzEZ Extras Website
 This Website Is For Items That Are Not On The Normal Website
 <br>
-## NOTE: THIS WEBSITE DOES NOT LOG UPDATES THE SAME AS BEFORE, SCROLL DOWN OR CLICK [HERE](#Version) TO SEE THE CURRENT UPDATE WHICH IS RECORDED IN WORDS. YOU CAN ALSO CLICK [HERE](https://github.com/StuffzEZ/stuffzez.github.io/commits) TO SEE THE NEW UPDATE LOG!
-<br>
 [![Made By StuffzEZ Badge](https://img.shields.io/badge/StuffzEZ-Made_By?label=Made%20By&labelColor=blue&color=orange)](https://bit.ly/m/StuffzEZ)
 [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/StuffzEZ/stuffzez.github.io)
 [![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)](https://stuffzez.github.io)
@@ -16,6 +14,7 @@ This Website Is For Items That Are Not On The Normal Website
 ## Contact
 [![StuffzEZ On Youtube](https://img.shields.io/badge/Youtube-FF0000?style=for-the-badge&logo=Youtube&logoColor=white)](https://youtube.com/@YT.StuffzEZ)
 [![StuffzEZ On Twitch](https://img.shields.io/badge/Twitch-9347FF?style=for-the-badge&logo=twitch&logoColor=white)](https://www.twitch.tv/stuffzez_live)
+[![StuffzEZ On Github](https://img.shields.io/badge/Github-000000?style=for-the-badge&logo=github&logoColor=white)](https://www.twitch.tv/stuffzez_live)
 
 ##
 
