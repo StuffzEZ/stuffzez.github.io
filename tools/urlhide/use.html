@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+    <title>stuffzez.github.io</title>
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const urlperam = urlParams.get('url');
+        const titleperam = urlParams.get('title');
+                document.title = titleperam;
+                document.getElementById('frame').src = urlperam;
+    </script>
+</head>
+<body>
+    <iframe id="frame" src="" style="width: 100vw; height: 100vh;"></iframe>
+</body>
+</html>
