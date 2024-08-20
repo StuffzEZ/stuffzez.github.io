@@ -14,6 +14,7 @@ This Website Is For Items That Are Not On The Normal Website
 ## Contact
 [![StuffzEZ On Youtube](https://img.shields.io/badge/Youtube-FF0000?style=for-the-badge&logo=Youtube&logoColor=white)](https://youtube.com/@YT.StuffzEZ)
 [![StuffzEZ On Twitch](https://img.shields.io/badge/Twitch-9347FF?style=for-the-badge&logo=twitch&logoColor=white)](https://www.twitch.tv/stuffzez_live)
+[![StuffzEZ On Github](https://img.shields.io/badge/Github-000000?style=for-the-badge&logo=github&logoColor=white)](https://www.twitch.tv/stuffzez_live)
 
 ##
 
