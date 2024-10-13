@@ -3,17 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://stuffzez.github.io/library/css/mainstylesheet.css"/>
+    <link rel="icon" type="image/x-icon" href="https://stuffzez.github.io/library/images/stuffzezlogo.png">
+    <script>
+        // Function to fetch text and update the "new song" elements
+        function updateNewSongInfo() {
+            fetch('https://stuffzez.github.io/src/core/song_now.txt')
+                .then(response => response.text()) // Read the response as text
+                .then(data => {
+                    // Split the data into lines
+                    const lines = data.split('\n');
+                    
+                    // Ensure there are at least 3 lines (Song Name, Album, Release Date)
+                    if (lines.length >= 3) {
+                        document.getElementById('new-song').innerText = lines[0].trim(); // Song Name
+                        document.getElementById('new-album').innerText = lines[1].trim(); // Album
+                        document.getElementById('new-date').innerText = lines[2].trim(); // Release Date
+                    } else {
+                        console.error('Insufficient data in the song.txt file.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching the new song information:', error);
+                });
+        }
+
+        // Function to fetch text and update the "next song" elements
+        function updateNextSongInfo() {
+            fetch('https://stuffzez.github.io/src/core/song_next.txt')
+                .then(response => response.text()) // Read the response as text
+                .then(data => {
+                    // Split the data into lines
+                    const lines = data.split('\n');
+                    
+                    // Ensure there are at least 3 lines (Song Name, Album, Release Date)
+                    if (lines.length >= 3) {
+                        document.getElementById('next-song').innerText = lines[0].trim(); // Song Name
+                        document.getElementById('next-album').innerText = lines[1].trim(); // Album
+                        document.getElementById('next-date').innerText = lines[2].trim(); // Release Date
+                    } else {
+                        console.error('Insufficient data in the nextsong.txt file.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching the next song information:', error);
+                });
+        }
+
+        // Call the functions to update the elements when the page loads
+        window.onload = function() {
+            updateNewSongInfo();
+            updateNextSongInfo();
+        };
+    </script>
     <title>StuffzEZ Music</title>
 </head>
 <body>
     <h1>StuffzEZ Music</h1>
     <br>
-    <h2>NEW SONG: Untitled Synth</h2>
+    <p>Newest Song Name: </p>
+    <p>Newest Song Album: </p>
+    <p>Newest Song Release Date: </p>
+    <br>
+    <p>Next Song Name: </p>
+    <p>Next Song Album: </p>
+    <p>Next Song Release Date: </p>
     <br>
     <p>Listen On:</p>
     <ul>
         <li>YouTube Music</li>
         <li>YouTube</li>
+        <li>This Website! (<a href="https://stuffzez.github.io/music/listen">Listen Now!</a>)</li>
     </ul>
 </body>
 </html>
