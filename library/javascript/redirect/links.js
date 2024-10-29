@@ -47,3 +47,11 @@ if (currentUrl == "https://stuffzez.github.io/OllieTheGamer"){
 if (currentUrl == "https://stuffzez.github.io/l/3d8s"){
   location.replace("https://stuffzez.github.io/description/v3mf45_")
 }
+
+if (currentUrl == "https://stuffzez.github.io/vidlink/47391"){
+  location.replace("https://stuffzez.github.io/Coding?src=ytviddesc&redirect=extras&viddate=29-08-2024&channel=main")
+}
+
+if (currentUrl == "https://stuffzez.github.io/vidlink/47392"){
+  location.replace("https://stuffzez.github.io/Coding?src=ytviddesc&redirect=extras&viddate=29-08-2024&channel=coding")
+}
