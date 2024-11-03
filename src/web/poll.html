@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WELCOME</title>
+    <title>Welcome</title>
     <style>
         .poll-container {
             max-width: 500px;
@@ -58,7 +58,7 @@
             font-size: 20px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-weight: bold;
-            background-color: rgb(255,255,255); 
+            background-color: rgb(255, 255, 255);
         }
     </style>
 </head>
@@ -66,7 +66,7 @@
     <h1>Welcome!</h1>
     <br>
     <div class="poll-container">
-        <h2 id="dynamic-text"></h2>
+        <h2 id="dynamic-text">?text=[YOURTEXT] (Put This At End Of URL)</h2>
         <button onclick="vote(true)">Great 😀</button>
         <button onclick="vote(false)">Not So Great 😐</button>
         
@@ -74,42 +74,50 @@
             <div class="bar-container">
                 <div class="bar" id="satisfaction-bar"></div>
             </div>
-            <p id="satisfaction-percentage">Vote To Change The Bar!</p>
+            <p id="satisfaction-percentage">Vote to see results!</p>
         </div>
     </div>
 
     <script>
-        function getUrlParameter(name) {
-            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-            var results = regex.exec(location.search);
-            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-        };
+        // Load vote counts from localStorage, or default to 0
+        let satisfiedCount = parseInt(localStorage.getItem('satisfiedCount')) || 0;
+        let totalCount = parseInt(localStorage.getItem('totalCount')) || 0;
 
+        // Display the initial results on load
         document.addEventListener("DOMContentLoaded", function() {
-            var text = getUrlParameter('text');
-            if (text) {
-                document.getElementById('dynamic-text').textContent = text;
+            updateResults();
+
+            // Check for a URL parameter to set dynamic text
+            const urlParams = new URLSearchParams(window.location.search);
+            const textParam = urlParams.get('text');
+            if (textParam) {
+                document.getElementById('dynamic-text').textContent = textParam;
             }
         });
 
-        let satisfiedCount = 0;
-        let totalCount = 0;
-
+        // Cast a vote
         function vote(isSatisfied) {
             totalCount++;
             if (isSatisfied) {
                 satisfiedCount++;
             }
+            saveVotes();
             updateResults();
         }
 
+        // Save vote data to localStorage
+        function saveVotes() {
+            localStorage.setItem('satisfiedCount', satisfiedCount);
+            localStorage.setItem('totalCount', totalCount);
+        }
+
+        // Update the bar and percentage text
         function updateResults() {
-            const percentage = (satisfiedCount / totalCount) * 100;
+            const percentage = totalCount > 0 ? (satisfiedCount / totalCount) * 100 : 0;
             const bar = document.getElementById('satisfaction-bar');
             const percentageText = document.getElementById('satisfaction-percentage');
             bar.style.width = percentage + '%';
-            percentageText.textContent = percentage.toFixed(1) + '%';
+            percentageText.textContent = totalCount > 0 ? percentage.toFixed(1) + '%' : 'No votes yet';
         }
     </script>
 </body>
