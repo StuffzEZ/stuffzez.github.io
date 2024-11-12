@@ -13,13 +13,15 @@
   .then(res => {
 let inputString = res[0].commit.message;
 let parts = inputString.split('\n\n');
-    document.getElementById('message').innerHTML = parts[0]
-    document.getElementById('desc').innerHTML = parts[1]
+var joint1 = "Commit Name: " + parts[0]
+var joint2 = "Commit Description: " + parts[1]
+    document.getElementById('message').innerHTML = joint1
+    document.getElementById('desc').innerHTML = joint2
   })
   fetch('https://api.github.com/repos/StuffzEZ/stuffzez.github.io/commits?per_page=1')
   .then(res => res.json())
   .then(res => {
-    var output = "Commit By: " + res[0].commit.author.name
+    var output = "Commit Author: " + res[0].commit.author.name
     document.getElementById('author').innerHTML = output
   })
     </script>
@@ -33,14 +35,9 @@ let parts = inputString.split('\n\n');
   width: 100%;
   background-color: rgb(21, 21, 0);
         }
-        div.commit {
-            float:left;
-            margin-right:5px;
-        }
-        div.contact {
-            float: right;
-            margin-left:5px;
-            text-align: right;
+
+        .header {
+            text-align: center;
         }
     </style>
     <title>StuffzEZ Extras | Home</title>
@@ -54,15 +51,17 @@ let parts = inputString.split('\n\n');
         <a href="about">About</a>
         <a href="https://stuffzez.github.io/src/web/leaving-page?to=https://github.com/StuffzEZ/stuffzez.github.io&prev=https://stuffzez.github.io">GitHub</a>
         <a href="https://stuffzez.github.io/docs/index">Docs</a>
+        <a href="https://stuffzez.github.io/Coding?ref=home">Coding</a>
+        <a href="https://stuffzez.github.io/testBrowser?ref=home">testBrowser</a>
     </div>
-    <h1>stuffzez.github.io</h1>
-    <br>
-    <p>A Simple Website, Made By <a href="https://stuffzez.github.io/profile?ref=home">Me (StuffzEZ)</a>.</p>
+    <div class="header">
+        <h1>stuffzez.github.io</h1>
+    </div>
     <br>
     <div class="container">
         <header>
-            <img src="https://s6-c.github.io/assets/images/thumbnails/project/pfp.png" alt="Profile Picture"> <!-- Replace with your image URL -->
-            <h1>s6-c.github.io</h1>
+            <img src="https://stuffzez.github.io/library/images/stuffzezlogo.png" alt="Profile Picture"> <!-- Replace with your image URL -->
+            <h1>My Projects</h1>
             <p><!--- LEAVE BLANK ---></p>
         </header>
 
@@ -84,11 +83,11 @@ let parts = inputString.split('\n\n');
                     <p>A Free Way To Learn The Basics Of HTML, Python And Markdown Made By <a href="https://github.com/StuffzEZ" class="aelement">Me</a> And <a href="https://github.com/s6-c" class="aelement">s6-c</a></p>
                     <a href="https://stuffzez.github.io/Coding" class="projecta">View</a>
                 </div>
-                <h3>Check Out s6-c's Minecraft Command Generator Project!</h3>
+                <h2>Check Out s6-c's Projects!</h2>
                 <div class="project">
-                    <h3>Generate Minecraft Commands</h3>
-                    <p>A Simple And Easy Way To Generate And Learn Commands For Minecraft</p>
-                    <a href="https://s6-c.github.io/generators/minecraft" class="projecta">View</a>
+                    <h3>s6-c.github.io</h3>
+                    <p>s6-c's GitHub Pages Website</p>
+                    <a href="https://s6-c.github.io" class="projecta">View</a>
                 </div>
             </div>
         <br>
@@ -97,7 +96,7 @@ let parts = inputString.split('\n\n');
             <div class="project-list">
                 <div class="project">
                     <h3>RedOptionStudios</h3>
-                    <p>A Roblox Games Studio Started By <a href="https://github.com/StuffzEZ" class="aelement">Me</a> And <a href="https://github.com/s6-c" class="aelement">StuffzEZ</a></p>
+                    <p>A Roblox Games Studio Started By <a href="https://github.com/StuffzEZ" class="aelement">Me</a> And <a href="https://github.com/s6-c" class="aelement">s6-c</a></p>
                     <a href="https://s6-c.github.io/RedOptionStudios" class="projecta">View</a>
                 </div>
             </div>
@@ -105,10 +104,13 @@ let parts = inputString.split('\n\n');
 
         <footer>
             <p><a href="https://github.com/s6-c/s6-c.github.io">GitHub Repository</a> | <a href="https://github.com/StuffzEZ">GitHub Profile</a></p>
-            <p>BTW: This Is From <a href="https://s6-c.github.io">s6-c.github.io</a>. But I Helped To Make That :)</p>
+            <p>PLEASE NOTE: This Is From <a href="https://s6-c.github.io">s6-c.github.io</a> But I Helped To Make That.</p>
         </footer>
     </div>
-    <div class="footer"> <!-- FOOTER -->
+
+    <!-- MAIN FOOTER -->
+
+    <footer style="background-color: black;"> <!-- FOOTER -->
         <div class="commit">
             <p>Latest Commit On <a href="https://github.com/StuffzEZ/stuffzez.github.io">GitHub</a></p>
             <br>
@@ -116,14 +118,13 @@ let parts = inputString.split('\n\n');
             <h3 id="desc" class="commit">Loading...</h3>
             <h3 id="author" class="commit">Loading...</h3>
         </div>
-        <div class="contact">
+        <br>
+        <div class="contact" >
             <p>Contact & Info</p>
-            <p>This Website Was Made By</p>
-            <p><a href="https://linktr.ee/StuffzEZ">StuffzEZ</a></p>
-            <p>View My Channel <a href="https://youtube.com/@YT.StuffzEZ">Here</a></p>
-            <p>Hope You Enjoyed! :)</p>
+            <p>This Website Was Made By <a href="https://linktr.ee/StuffzEZ">StuffzEZ</a> | View My Channel <a href="https://youtube.com/@YT.StuffzEZ">Here</a></p>
+            <p>Thank You For Visiting! See You Again Soon :)</p>
         </div>
-    </div>
+    </footer>
     <br>
 </body>
 </html>
