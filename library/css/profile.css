@@ -89,7 +89,7 @@ header img {
 }
 
 .projecta:hover {
-    background: #3498db; /* Change background on hover */
+    background: #ed7331; /* Change background on hover */
     color: #fff; /* Change text color on hover */
 }
 
@@ -99,7 +99,7 @@ footer {
 }
 
 footer a {
-    color: #3498db;
+    color: #ed7331;
     text-decoration: none;
 }
 
@@ -108,7 +108,7 @@ footer a:hover {
 }
 
 .aelement {
-    color: #3498db;
+    color: #ed7331;
     text-decoration: none;
 }
 
