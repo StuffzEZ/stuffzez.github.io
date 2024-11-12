@@ -79,11 +79,11 @@ header img {
 }
 
 .projecta {
-    color: #3498db;
+    color: #ed7331;
     text-decoration: none;
     font-size: 0.9em; /* Smaller button text */
     padding: 5px 10px; /* Smaller button size */
-    border: 1px solid #3498db; /* Button border */
+    border: 1px solid #ed7331; /* Button border */
     border-radius: 5px; /* Button border radius */
     transition: background 0.3s, color 0.3s; /* Transition effect */
 }
