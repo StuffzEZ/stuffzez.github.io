@@ -4,6 +4,22 @@ if (currentUrl == "https://stuffzez.github.io/l/cj0k"){
   location.replace("https://youtube.com/@YT.StuffzEZ")
 }
 
+if (currentUrl == "https://stuffzez.github.io/youtube"){
+  location.replace("https://youtube.com/@YT.StuffzEZ")
+}
+
+if (currentUrl == "https://stuffzez.github.io/videos"){
+  location.replace("https://youtube.com/@YT.StuffzEZ")
+}
+
+if (currentUrl == "https://stuffzez.github.io/YouTube"){
+  location.replace("https://youtube.com/@YT.StuffzEZ")
+}
+
+if (currentUrl == "https://stuffzez.github.io/beta"){
+  location.replace("https://stuffzez.github.io/src/web/beta")
+}
+
 if (currentUrl == "https://stuffzez.github.io/l/dl30"){
   location.replace("https://stuffzez.github.io/src/welcome-pages/main?prev=https://youtube.com/@YT.StuffzEZ")
 }
