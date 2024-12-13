@@ -16,6 +16,10 @@ if (currentUrl == "https://stuffzez.github.io/YouTube"){
   location.replace("https://youtube.com/@YT.StuffzEZ")
 }
 
+if (currentUrl == "https://stuffzez.github.io/learn"){
+  location.replace("https://s6-c.github.io?ref=stuffzez")
+}
+
 if (currentUrl == "https://stuffzez.github.io/beta"){
   location.replace("https://stuffzez.github.io/src/web/beta")
 }
