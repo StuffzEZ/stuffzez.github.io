@@ -75,3 +75,7 @@ if (currentUrl == "https://stuffzez.github.io/vidlink/47391"){
 if (currentUrl == "https://stuffzez.github.io/vidlink/47392"){
   location.replace("https://stuffzez.github.io/Coding?src=ytviddesc&redirect=extras&viddate=29-08-2024&channel=coding")
 }
+
+if (currentUrl == "https://stuffzez.github.io/dino_chrome"){
+  location.replace("chrome://dino")
+}
