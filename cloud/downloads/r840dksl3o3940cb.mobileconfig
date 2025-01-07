@@ -22,9 +22,9 @@
         <key>IsRemovable</key>
         <true/>
         <key>FullScreen</key>
-          <true/>
+        <true/>
         <key>URL</key>
-        <string>http://homeassistant.local</string>
+        <string>http://homeassistant.local:8123</string>
         <key>FullScreen</key>
         <true/>
         <key>Icon</key>
