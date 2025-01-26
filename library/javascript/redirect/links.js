@@ -79,3 +79,7 @@ if (currentUrl == "https://stuffzez.github.io/vidlink/47392"){
 if (currentUrl == "https://stuffzez.github.io/dino_chrome"){
   location.replace("chrome://dino")
 }
+
+if (currentUrl == "https://stuffzez.github.io/vl/378219"){
+  location.replace("https://stuffzez.github.io/docsblog/HomeAssistant/alexasmartthingsintergrationeasy?ref=ytviddesc&redirect=docsblog&vidid=homeassistantvoicecontrol_38492&channel=main")
+}
