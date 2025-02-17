@@ -115,3 +115,27 @@ if (currentUrl == "https://stuffzez.github.io/modmy/gorillatag/quest-3s"){
 if (currentUrl == "https://stuffzez.github.io/getmchostmod"){
   location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0")
 }
+
+if (currentUrl == "https://stuffzez.github.io/secretview/page/fh39slkj3m"){
+  location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+}
+
+if (currentUrl == "https://stuffzez.github.io/secretview/page/4fkjhs839"){
+  location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+}
+
+if (currentUrl == "https://stuffzez.github.io/shortlink/dsh73kljsb354"){
+  location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+}
+
+if (currentUrl == "https://stuffzez.github.io/hidemylink/dh9kjlahs873"){
+  location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+}
+
+if (currentUrl == "https://stuffzez.github.io/adblocker/download"){
+  location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+}
+
+if (currentUrl == "https://stuffzez.github.io/do-not-click-this-link"){
+  location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+}
