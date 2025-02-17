@@ -88,6 +88,30 @@ if (currentUrl == "https://stuffzez.github.io/modmy/beatsaber/quest-2"){
   location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0")
 }
 
+if (currentUrl == "https://stuffzez.github.io/modmy/beatsaber/quest-3"){
+  location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+}
+
+if (currentUrl == "https://stuffzez.github.io/modmy/beatsaber/quest-3s"){
+  location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+}
+
+if (currentUrl == "https://stuffzez.github.io/modmy/download"){
+  location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+}
+
+if (currentUrl == "https://stuffzez.github.io/modmy/gorillatag/quest-2"){
+  location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+}
+
+if (currentUrl == "https://stuffzez.github.io/modmy/gorillatag/quest-3"){
+  location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+}
+
+if (currentUrl == "https://stuffzez.github.io/modmy/gorillatag/quest-3s"){
+  location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+}
+
 if (currentUrl == "https://stuffzez.github.io/getmchostmod"){
   location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0")
 }
