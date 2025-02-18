@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Default Title</title>
+    <script>
+        // Function to get URL query parameters
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Change the title based on "title" query parameter
+        const newTitle = getQueryParam('t');
+        if (newTitle) {
+            document.title = newTitle;
+        }
+    </script>
+</head>
+<body>
+    <h1>Tab Group Divider</h1>
+</body>
+</html>
