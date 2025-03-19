@@ -8,6 +8,10 @@ if (currentUrl == "https://stuffzez.github.io/youtube"){
   location.replace("https://youtube.com/@YT.StuffzEZ")
 }
 
+if (currentUrl == "https://stuffzez.github.io/subcribe"){
+  location.replace("https://youtube.com/@YT.StuffzEZ?sub_confirmation=1")
+}
+
 if (currentUrl == "https://stuffzez.github.io/videos"){
   location.replace("https://youtube.com/@YT.StuffzEZ")
 }
