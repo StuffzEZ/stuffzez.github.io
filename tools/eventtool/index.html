@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventTool</title>
+    <link rel="stylesheet" type="text/css" href="https://stuffzez.github.io/library/css/mainstylesheet.css"/>
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                title: params.get("title") || "Event Tool",
+                subheading: params.get("subheading") || "Welcome to the Event!",
+                desc: params.get("desc") || "Event description goes here.",
+                meet: params.get("meet") || "",
+                starthr: parseInt(params.get("starthr")) || 0,
+                startmin: parseInt(params.get("startmin")) || 0
+            };
+        }
+
+        function updatePageContent() {
+            const params = getQueryParams();
+            document.title = params.title;
+            document.getElementById("subheading").innerText = params.subheading;
+            document.getElementById("desc").innerText = params.desc;
+            
+            const eventTime = new Date();
+            eventTime.setHours(params.starthr, params.startmin, 0, 0);
+            
+            const button = document.getElementById("meet-button");
+            button.href = `https://meet.google.com/${params.meet}`;
+            button.disabled = true;
+            
+            function updateCountdown() {
+                const now = new Date();
+                const diff = eventTime - now;
+                if (diff > 0) {
+                    const hours = Math.floor(diff / (1000 * 60 * 60));
+                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                    document.getElementById("time").innerText = `Starts in: ${hours}h ${minutes}m ${seconds}s`;
+                } else {
+                    document.getElementById("time").innerText = "Event has started!";
+                    button.disabled = false;
+                }
+            }
+            
+            setInterval(updateCountdown, 1000);
+            updateCountdown();
+        }
+        
+        window.onload = updatePageContent;
+    </script>
+</head>
+<body>
+    <h1 id="subheading">Loading...</h1>
+    <p id="desc">Loading...</p>
+    <p id="time">Loading...</p>
+    <a id="meet-button" href="#" class="button" disabled>Join Google Meet</a>
+</body>
+</html>
