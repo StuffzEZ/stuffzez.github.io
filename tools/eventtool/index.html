@@ -3,8 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EventTool</title>
+    <title>Event Tool</title>
     <link rel="stylesheet" type="text/css" href="https://stuffzez.github.io/library/css/mainstylesheet.css"/>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .hidden {
+            display: none;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
     <script>
         function getQueryParams() {
             const params = new URLSearchParams(window.location.search);
@@ -29,7 +57,7 @@
             
             const button = document.getElementById("meet-button");
             button.href = `https://meet.google.com/${params.meet}`;
-            button.disabled = true;
+            button.classList.add("hidden");
             
             function updateCountdown() {
                 const now = new Date();
@@ -41,7 +69,7 @@
                     document.getElementById("time").innerText = `Starts in: ${hours}h ${minutes}m ${seconds}s`;
                 } else {
                     document.getElementById("time").innerText = "Event has started!";
-                    button.disabled = false;
+                    button.classList.remove("hidden");
                 }
             }
             
@@ -56,6 +84,6 @@
     <h1 id="subheading">Loading...</h1>
     <p id="desc">Loading...</p>
     <p id="time">Loading...</p>
-    <a id="meet-button" href="#" class="button" disabled>Join Google Meet</a>
+    <a id="meet-button" href="#" class="button hidden">Join Google Meet</a>
 </body>
 </html>
