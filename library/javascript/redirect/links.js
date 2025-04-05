@@ -113,7 +113,7 @@ if (currentUrl == "https://stuffzez.github.io/modmy/gorillatag/quest-3"){
 }
 
 if (currentUrl == "https://stuffzez.github.io/modmy/gorillatag/quest-3s"){
-  location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+  location.replace("https://shattereddisk.github.io/rickroll/rickroll.mp4")
 }
 
 if (currentUrl == "https://stuffzez.github.io/getmchostmod"){
