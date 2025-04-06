@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://stuffzez.github.io/</loc>
+  <lastmod>2025-04-06T15:22:13+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://stuffzez.github.io/src/web/beta</loc>
+  <lastmod>2025-04-06T15:22:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://stuffzez.github.io/src/web/leaving-page?to=https://github.com/StuffzEZ/stuffzez.github.io&amp;prev=https://stuffzez.github.io</loc>
+  <lastmod>2025-04-06T15:22:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://stuffzez.github.io/learn/</loc>
+  <lastmod>2024-12-23T14:34:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://stuffzez.github.io/testBrowser/?ref=home</loc>
+  <lastmod>2024-10-07T15:31:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://stuffzez.github.io/testBrowser/</loc>
+  <lastmod>2024-10-07T15:31:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://stuffzez.github.io/Coding/</loc>
+  <lastmod>2024-10-29T17:06:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://stuffzez.github.io/music/listen</loc>
+  <lastmod>2025-04-06T15:22:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://stuffzez.github.io/music/index</loc>
+  <lastmod>2025-04-06T15:22:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://stuffzez.github.io/cloud/music/bass_test/basstest_instructions</loc>
+  <lastmod>2025-04-06T15:22:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://stuffzez.github.io/src/web/channels</loc>
+  <lastmod>2025-04-06T15:22:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://stuffzez.github.io/testBrowser/core/pageindex</loc>
+  <lastmod>2024-10-07T15:31:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://stuffzez.github.io/Coding/signup</loc>
+  <lastmod>2024-10-29T17:06:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://stuffzez.github.io/Coding/src/learn</loc>
+  <lastmod>2024-10-29T17:06:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://stuffzez.github.io/src/web/leaving-page?prev=https://stuffzez.github.io/src/web/channels&amp;to=https://red-option-studios.github.io</loc>
+  <lastmod>2025-04-06T15:22:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://stuffzez.github.io/src/web/leaving-page?prev=https://stuffzez.github.io/src/web/channels&amp;to=https://red-option-studios.github.io/blog</loc>
+  <lastmod>2025-04-06T15:22:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://stuffzez.github.io/src/welcome-pages/main?prev=https://stuffzez.github.io/src/web/channels</loc>
+  <lastmod>2025-04-06T15:22:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://stuffzez.github.io/src/web/leaving-page?prev=https://stuffzez.github.io/src/web/channels&amp;to=https://stuffzez.github.io/l/lweb-1</loc>
+  <lastmod>2025-04-06T15:22:13+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+
+
+</urlset>
