@@ -1,0 +1,17 @@
+disallow: /src/*
+disallow: /library/*
+disallow: /docsold/demos/*
+disallow: /docsold/js/*
+allow: /docsold/index.html
+disallow: /description/*
+disallow: /cloud/*
+disallow: /sub-websites/*
+disallow: 404
+disallow: 404.html
+disallow: README.md
+disallow: README.html
+disallow: README
+disallow: UPDATES.md
+disallow: UPDATES.html
+disallow: UPDATES
+disallow: music

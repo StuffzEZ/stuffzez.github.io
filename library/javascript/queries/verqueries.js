@@ -8,7 +8,7 @@ const version = urlParams.get('ver');
 
 function paramerterTest(parameter) {
     if (parameter !== undefined){
-        location.replace("home")
+        console.log('NO PERAMS')
     }
 }
 
