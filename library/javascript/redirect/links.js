@@ -4,6 +4,10 @@ if (currentUrl == "https://stuffzez.github.io/l/cj0k"){
   location.replace("https://youtube.com/@YT.StuffzEZ")
 }
 
+if (currentUrl == "https://stuffzez.github.io/yt/godmode"){
+  location.replace("https://github.com/StuffzEZ/scripts/releases/tag/godmodescript")
+}
+
 if (currentUrl == "https://stuffzez.github.io/youtube"){
   location.replace("https://youtube.com/@YT.StuffzEZ")
 }
