@@ -7,20 +7,24 @@
     <link rel="icon" type="image/x-icon" href="https://stuffzez.github.io/library/images/stuffzezlogo.png">
     <script src="https://stuffzez.github.io/library/javascript/redirect/links.js"></script>
     <script>
-    window.onload = function () {
-      const pathParts = window.location.pathname.split("/").filter(Boolean);
-      const githubUser = "StuffzEZ"; // ← change this to your actual GitHub username
+  window.onload = function () {
+    const pathParts = window.location.pathname.split("/").filter(Boolean);
+    const githubUser = "StuffzEZ"; // ← replace this with your actual GitHub username
+    const userPagesRepo = `${githubUser}.github.io`;
 
-      // Match /repo/REPONAME
-      if (pathParts.length === 2 && pathParts[0] === "repo") {
-        const repoName = pathParts[1];
-        const targetURL = `https://github.com/${githubUser}/${repoName}`;
-        window.location.href = targetURL;
-      } else {
-          console.log('Repo Not Found. Using General 404 Page')
-      }
-    };
-  </script>
+    if (pathParts.length === 2 && pathParts[0] === "repo") {
+      // /repo/REPONAME → redirect to that repo
+      const repoName = pathParts[1];
+      window.location.href = `https://github.com/${githubUser}/${repoName}`;
+    } else if (pathParts.length === 1 && pathParts[0] === "repo") {
+      // /repo → redirect to GitHub Pages repo
+      window.location.href = `https://github.com/${githubUser}/${userPagesRepo}`;
+    } else {
+        console.log('NORMAL 404 - NOT REPO VERSION')
+    }
+  };
+</script>
+
     <title>StuffzEZ Extras | Error 404 | Page Not Found</title>
 </head>
 <body>
