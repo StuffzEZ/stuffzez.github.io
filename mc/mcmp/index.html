@@ -13,17 +13,8 @@
         <h2>MCMP Zipper</h2>
         <p>Please Upload A ZIP File With JARs Inside of it (Directly - The Structure Example Is Below)</p>
         <br>
-        <p>|- ToZipMCMP.zip 
-            |- MyJar.jar
-
-            WRONG
-
-            |- ToZipMCMP.zip 
-             |- ToZipMCMP
-              |- MyJar.jar
-        </p>
         <input type="file" id="fileInput" />
-<button onclick="encryptAndDownload()">Encrypt & Convert to .mcmp</button>
+        <button onclick="encryptAndDownload()">Zip To .mcmp</button>
 
 <script>
 async function encryptAndDownload() {
