@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MCMP Creator">
+    <link rel="stylesheet" type="text/css" href="https://stuffzez.github.io/library/css/mainstylesheet.css"/>
+    <link rel="icon" type="image/x-icon" href="https://stuffzez.github.io/library/images/stuffzezlogo.png">
+    <title>MCMP Creator</title>
+</head>
+<body>
+    <div>
+        <h2>MCMP Zipper</h2>
+        <p>Please Upload A ZIP File With JARs Inside of it (Directly - The Structure Example Is Below)</p>
+        <br>
+        <p>|- ToZipMCMP.zip 
+            |- MyJar.jar
+
+            WRONG
+
+            |- ToZipMCMP.zip 
+             |- ToZipMCMP
+              |- MyJar.jar
+        </p>
+        <input type="file" id="fileInput" />
+<button onclick="encryptAndDownload()">Encrypt & Convert to .mcmp</button>
+
+<script>
+async function encryptAndDownload() {
+  const fileInput = document.getElementById("fileInput");
+  const file = fileInput.files[0];
+
+  if (!file || !file.name.endsWith(".zip")) {
+    alert("Please select a .zip file.");
+    return;
+  }
+
+  // Read file as ArrayBuffer
+  const arrayBuffer = await file.arrayBuffer();
+
+  // Use provided passphrase to generate key
+  const passphrase = "mcmp48dshk42bamny53y79843%£O^~%5lkjfd9043HKA?/389SGJd3879dhMNBA:£dbskey";
+  const enc = new TextEncoder();
+  const salt = crypto.getRandomValues(new Uint8Array(16)); // 16 bytes salt
+  const iv = crypto.getRandomValues(new Uint8Array(12)); // 12 bytes IV for AES-GCM
+
+  const keyMaterial = await crypto.subtle.importKey(
+    "raw",
+    enc.encode(passphrase),
+    "PBKDF2",
+    false,
+    ["deriveKey"]
+  );
+
+  const key = await crypto.subtle.deriveKey(
+    {
+      name: "PBKDF2",
+      salt: salt,
+      iterations: 100000,
+      hash: "SHA-256"
+    },
+    keyMaterial,
+    { name: "AES-GCM", length: 256 },
+    false,
+    ["encrypt"]
+  );
+
+  const encrypted = await crypto.subtle.encrypt(
+    {
+      name: "AES-GCM",
+      iv: iv
+    },
+    key,
+    arrayBuffer
+  );
+
+  // Combine salt + IV + encrypted data
+  const totalLength = salt.byteLength + iv.byteLength + encrypted.byteLength;
+  const combined = new Uint8Array(totalLength);
+  combined.set(salt, 0);
+  combined.set(iv, salt.byteLength);
+  combined.set(new Uint8Array(encrypted), salt.byteLength + iv.byteLength);
+
+  // Create a blob and download as .mcmp
+  const blob = new Blob([combined], { type: "application/octet-stream" });
+  const downloadLink = document.createElement("a");
+  downloadLink.href = URL.createObjectURL(blob);
+  downloadLink.download = file.name.replace(/\.zip$/, ".mcmp");
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  document.body.removeChild(downloadLink);
+}
+</script>
+
+    </div>
+</body>
+</html>
