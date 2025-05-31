@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multi Download Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 30px;
+        }
+        .download-button {
+            display: block;
+            margin: 10px auto;
+            padding: 12px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            width: 250px;
+            text-decoration: none;
+        }
+        .download-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select a File to Download</h1>
+    <div id="downloads"></div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const container = document.getElementById('downloads');
+
+        for (let i = 1; i <= 10; i++) {
+            const key = `dw${i}`;
+            const url = params.get(key);
+
+            if (url) {
+                const fileName = url.split('/').pop().split('?')[0];
+                const link = document.createElement('a');
+                link.href = url;
+                link.textContent = `Download ${fileName}`;
+                link.className = 'download-button';
+                link.download = '';
+                container.appendChild(link);
+            }
+        }
+
+        if (!container.hasChildNodes()) {
+            container.innerHTML = '<p>No download links provided.</p>';
+        }
+    </script>
+</body>
+</html>
