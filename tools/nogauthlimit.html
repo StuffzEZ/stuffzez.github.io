@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Remove Gauth Math Limit | stuffzez.github.io Tools</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 40px;
+      text-align: center;
+    }
+    a.bookmarklet-button {
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: #0078D7;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: move;
+      user-select: none;
+    }
+    a.bookmarklet-button:hover {
+      background-color: #005fa3;
+    }
+    p {
+      max-width: 500px;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Remove the <code>Gauthmath</code> Question Limit</h1>
+  <p>Drag the button below to your bookmarks bar. Click it while you're on <code>gauthmath.com</code> to reset your limit.</p>
+
+  <a class="bookmarklet-button" href="javascript:(function(){
+  document.cookie='ttwid=; path=/; domain=.gauthmath.com; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax; Secure';
+  location.reload();
+})();
+">
+    🧹 Get rid of gauthmath limit
+  </a>
+
+  <p>On a phone, bookmark this page then edit it and change the url to the text below.</p>
+  <br>
+  <p>javascript:(function(){
+  document.cookie='ttwid=; path=/; domain=.gauthmath.com; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax; Secure';
+  location.reload();
+})();
+  </p>
+</body>
+</html>
