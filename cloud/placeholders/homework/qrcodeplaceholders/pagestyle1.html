@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="homework qr placeholder page">
+    <link rel="icon" type="image/x-icon" href="library/images/stuffzezlogo.png">
+    <link rel="stylesheet" type="text/css" href="https://stuffzez.github.io/library/css/mainstylesheet.css"/>
+    <script>
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const rmore = urlParams.get('readmore')
+      const hwn = urlParams.get('hwname')
+
+      document.getElementById("title").innerHTML = "It's good that you are interested in " + hwname + " but...";
+      
+      function rmore2(){
+          location.replace(rmore)
+      }
+    </script>
+    <title>Homework QR Placeholder Page | stuffzez.github.io</title>
+</head>
+<body>
+    <h1>Thanks for scanning the QR but...</h1>
+    <br>
+    <p>The QR doesn't do anything.... :(</p>
+    <br>
+    <p>But if you are interested about the topic of this homework, press the button below to read more!</p>
+    <br>
+    <button onclick="rmore2">Read More</button>
+</body>
+</html>
