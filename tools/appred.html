@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Open App</title>
+  <script>
+    window.onload = function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const app = urlParams.get('app');
+
+      if (app) {
+        // Attempt to open the app URI
+        window.location.href = app;
+      } else {
+        document.body.textContent = "No app specified in query string.";
+      }
+    };
+  </script>
+</head>
+<body>
+  <p>Opening app...</p>
+</body>
+</html>
