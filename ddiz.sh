@@ -1,68 +1,54 @@
 #!/bin/bash
 
-# THIS IS A DOCKER DESKTOP INSTALL SCRIPT FOR ZORIN OS (Mainly)
+# Welcome message
+echo "Welcome To Stuf_y's Zorin Docker Desktop Installer Script!"
 
-echo "Welcome To Stuf_y's Docker Desktop Installer Script! (Originally Zorin)."
-sleep 1
+# Inform about adding Docker repository
+echo "Adding Docker Repository.."
+sleep 2  # 2 Second Wait
 
-# Detect OS
-OS_ID=$(grep ^ID= /etc/os-release | cut -d= -f2 | tr -d '"')
-OS_NAME=$(grep ^PRETTY_NAME= /etc/os-release | cut -d= -f2 | tr -d '"')
-
-echo "Detected OS: $OS_NAME"
-
-# Only continue for Ubuntu or Zorin
-if [[ "$OS_ID" != "ubuntu" && "$OS_ID" != "zorin" ]]; then
-    echo "This script only supports Ubuntu or Zorin OS. Exiting."
-    exit 1
-fi
-
-# Ask user if they want to install Docker
-read -p "Do you want to install Docker Desktop? (y/n): " INSTALL_DOCKER
-if [[ "$INSTALL_DOCKER" != "y" ]]; then
-    echo "Installation canceled by user."
-    exit 0
-fi
-
-echo "Adding Docker Repository..."
-sleep 2
-
-# Prepare and add Docker repository
+# Update package index and install prerequisites
 sudo apt-get update
-sudo apt-get install -y ca-certificates curl gnupg lsb-release
+sudo apt-get install -y ca-certificates curl
 
+# Create keyrings directory if it doesn't exist
 sudo install -m 0755 -d /etc/apt/keyrings
+
+# Download Docker GPG key
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
 
-# Get codename (for example: focal, jammy)
-CODENAME=$(lsb_release -cs)
-
-# Add Docker source
+# Add Docker repository to Apt sources
 echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $CODENAME stable" | \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-# Update apt cache
+# Update package index again after adding Docker repository
 sudo apt-get update
 
-echo "Downloading Docker Desktop package..."
-sleep 2
+# Notify user
+echo "Added Repository!"
+sleep 2  # 2 Second Wait
+
+# Download the Docker Desktop Debian package
+echo "Downloading Debian Package.."
+sleep 2  # 2 Second Wait
 wget "https://desktop.docker.com/linux/main/amd64/docker-desktop-amd64.deb"
 
-echo "Downloaded Docker Desktop!"
-sleep 1
+# Notify user of download completion
+echo "Downloaded Debian Package!"
+sleep 1  # 1 Second Wait
 
-# Ask if user wants to upgrade packages
-read -p "Do you want to run 'apt upgrade' before installing Docker Desktop? (y/n): " UPGRADE_SYSTEM
-if [[ "$UPGRADE_SYSTEM" == "y" ]]; then
-    echo "Upgrading system packages..."
-    sleep 2
-    sudo apt-get upgrade -y
-fi
+# Update before upgrade
+echo "Updating.."
+sleep 2  # 2 Second Wait
+sudo apt-get update
 
-# Install Docker Desktop
-echo "Installing Docker Desktop..."
+# Upgrade existing packages
+echo "Upgrading.."
+sleep 2  # 2 Second Wait
+sudo apt-get upgrade -y
+
+# Install the downloaded Docker Desktop package
 sudo apt-get install -y ./docker-desktop-amd64.deb
-
-echo "Docker Desktop installation completed!"
