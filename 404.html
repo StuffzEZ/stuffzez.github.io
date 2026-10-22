@@ -3,39 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="https://stuffzez.github.io/library/css/mainstylesheet.css"/>
-    <link rel="icon" type="image/x-icon" href="https://stuffzez.github.io/library/images/stuffzezlogo.png">
-    <script src="https://stuffzez.github.io/library/javascript/redirect/links.js"></script>
-    <script>
-  window.onload = function () {
-    const pathParts = window.location.pathname.split("/").filter(Boolean);
-    const githubUser = "StuffzEZ"; // ← replace this with your actual GitHub username
-    const userPagesRepo = `${githubUser}.github.io`;
-
-    if (pathParts.length === 2 && pathParts[0] === "repo") {
-      // /repo/REPONAME → redirect to that repo
-      const repoName = pathParts[1];
-      window.location.href = `https://github.com/${githubUser}/${repoName}`;
-    } else if (pathParts.length === 1 && pathParts[0] === "repo") {
-      // /repo → redirect to GitHub Pages repo
-      window.location.href = `https://github.com/${githubUser}/${userPagesRepo}`;
-    } else {
-        console.log('NORMAL 404 - NOT REPO VERSION')
-    }
-  };
-</script>
-
-    <title>StuffzEZ Extras | Error 404 | Page Not Found</title>
+    <title>not found :(</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+        body {
+            background-color: #232325;
+            color: #c3c2cf;
+            font-family: "Roboto Mono", monospace;
+        }
+    </style>
 </head>
 <body>
-    <h1 style="text-align: center;">Error 404</h1>
-    <br>
-    <p style="text-align: center;">Sorry, We Are Not Able To Find Your Page...</p>
-    <br>
-    <p style="text-align: center;">Please Try Again Later...</p>
-    <br>
-    <br>
-    <br>
-    <a href="index"><img src="https://stuffzez.github.io/library/images/stuffzezlogo.png" alt="The Logo For This Website (Click To Go To Home Page)" style="width: 15%; height: 15%; border-radius: 50%; display: block; margin-left: auto; margin-right: auto;"></a>
+    <h1>nah bro - i ain't findin that</h1>
+    <p>404</p>
 </body>
 </html>

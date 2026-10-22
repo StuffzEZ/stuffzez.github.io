@@ -1,145 +1,306 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "thqaxt8zw3");
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The Home Page For The StuffzEZ Extras Website">
-    <link rel="stylesheet" type="text/css" href="https://stuffzez.github.io/library/css/mainstylesheet.css"/>
-    <link rel="stylesheet" type="text/css" href="https://stuffzez.github.io/library/css/profile.css"/>
-    <link rel="icon" type="image/x-icon" href="https://stuffzez.github.io/library/images/stuffzezlogo.png">
-    <!-- <script src="https://stuffzez.github.io/library/javascript/queries/verqueries.js"></script> -->
-    <script>
-        fetch('https://api.github.com/repos/StuffzEZ/stuffzez.github.io/commits?per_page=1')
-  .then(res => res.json())
-  .then(res => {
-let inputString = res[0].commit.message;
-let parts = inputString.split('\n\n');
-var joint1 = "Commit Name: " + parts[0]
-var joint2 = "Commit Description: " + parts[1]
-    document.getElementById('message').innerHTML = joint1
-    document.getElementById('desc').innerHTML = joint2
-  })
-  fetch('https://api.github.com/repos/StuffzEZ/stuffzez.github.io/commits?per_page=1')
-  .then(res => res.json())
-  .then(res => {
-    var output = "Commit Author: " + res[0].commit.author.name
-    document.getElementById('author').innerHTML = output
-  })
-    </script>
-    <style>
-        div.footer {
-    height:250px;
-    margin-right:10px;
-    position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: rgb(21, 21, 0);
-        }
-
-        .header {
-            text-align: center;
-        }
-
-        .projecta:hover {
-            background: #ed7331; /* Change background on hover */
-    color: #fff; /* Change text color on hover */
-        }
-    </style>
-    <title>StuffzEZ Extras | Home</title>
-</head>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/158745985?v=4">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--text:#fff3e6;--muted:rgba(255,232,212,.72);--glass:rgba(255,236,218,.10);--edge:rgba(255,222,190,.30);--accent:#ffb36b;--accent2:#ff7e8a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family: "Roboto Mono", monospace;}
+body{color:var(--text);background:#1c1020;overflow-x:hidden;min-height:100vh;display:grid;place-items:center;padding:28px 16px}
+.bg{position:fixed;inset:0;z-index:-2;overflow:hidden;background:linear-gradient(160deg,#2a1330 0%,#4a1f3a 45%,#7a3a2e 100%)}
+.sway{position:absolute;inset:-5%;animation:sway 14s ease-in-out infinite}
+.bgimg{position:absolute;inset:0;background:center/cover no-repeat}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.75;animation:float 20s ease-in-out infinite alternate}
+.b1{width:480px;height:480px;background:#ff9a56;top:-140px;left:-120px}
+.b2{width:420px;height:420px;background:#ff5f7e;bottom:-120px;right:-100px;animation-delay:-7s}
+.b3{width:340px;height:340px;background:#ffd08a;top:42%;left:52%;opacity:.4;animation-delay:-12s}
+.hasbg .blob{display:none}
+.shade{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,rgba(255,170,90,.16),transparent 60%),radial-gradient(ellipse at center,transparent 45%,rgba(20,8,24,.55) 100%)}
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.09;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.fly{position:fixed;bottom:-20px;width:6px;height:6px;border-radius:50%;background:#ffd9a0;box-shadow:0 0 12px 4px rgba(255,190,110,.7);z-index:-1;pointer-events:none;opacity:0;animation:rise linear infinite}
+@keyframes rise{0%{transform:translate(0,0);opacity:0}10%{opacity:.9}50%{transform:translate(30px,-50vh)}90%{opacity:.7}100%{transform:translate(-20px,-108vh);opacity:0}}
+@keyframes float{to{transform:translate(60px,-50px) scale(1.15)}}
+@keyframes sway{0%,100%{transform:translate(0,0) rotate(0)}20%{transform:translate(-8px,6px) rotate(.3deg)}40%{transform:translate(7px,-5px) rotate(-.25deg)}60%{transform:translate(-5px,-8px) rotate(.2deg)}80%{transform:translate(8px,4px) rotate(-.3deg)}}
+@keyframes breathe{50%{transform:translateY(-6px)}}
+.card{width:100%;max-width:580px;padding:30px;border-radius:36px;background:linear-gradient(145deg,rgba(255,236,218,.2),rgba(255,200,160,.05));border:1px solid var(--edge);backdrop-filter:blur(26px) saturate(170%);-webkit-backdrop-filter:blur(26px) saturate(170%);box-shadow:inset 0 1px 0 rgba(255,240,225,.5),inset 0 -1px 0 rgba(255,200,160,.1),0 0 70px rgba(255,150,80,.18),0 28px 60px rgba(20,5,20,.45);animation:breathe 8s ease-in-out infinite}
+.top{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.avatar{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;color:#3a1a25;background:linear-gradient(135deg,#ffd08a,#ff8f7a);border:2px solid rgba(255,235,215,.6);box-shadow:0 0 24px rgba(255,160,100,.45);background-size:cover;background-position:center}
+.who{flex:1;min-width:140px}
+.name{margin:0}
+.tag{color:var(--muted);font-size:15px}
+.status{display:inline-flex;align-items:center;gap:8px;padding:8px 15px;border-radius:999px;background:var(--glass);border:1px solid var(--edge);font-size:13px;font-weight:600;transition:opacity .45s,transform .45s}
+.status.out{opacity:0;transform:translateY(4px)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:pulse 2.4s infinite;transition:background .4s,box-shadow .4s}
+@keyframes pulse{50%{opacity:.35}}
+.socials{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 4px}
+.socials a{width:44px;height:44px;display:grid;place-items:center;border-radius:15px;background:var(--glass);border:1px solid var(--edge);color:var(--text);transition:.25s}
+.socials a:hover{transform:translateY(-3px);background:rgba(255,200,150,.25);box-shadow:0 6px 20px rgba(255,150,80,.3)}
+.socials svg{width:20px;height:20px;fill:currentColor}
+.bio{color:var(--muted);line-height:1.7;margin:16px 0 0;white-space:pre-line}
+hr{border:0;height:1px;margin:26px 0;background:linear-gradient(90deg,transparent,rgba(255,210,170,.6),transparent)}
+h2{font:600 12px Nunito,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.proj{padding:15px;border-radius:20px;background:var(--glass);border:1px solid rgba(255,222,190,.2);color:inherit;text-decoration:none;transition:.25s}
+.proj:hover{transform:translateY(-3px);background:rgba(255,200,150,.2);box-shadow:0 8px 24px rgba(255,140,80,.25)}
+.proj b{display:block;margin-bottom:4px;}.proj span{font-size:13px;color:var(--muted)}
+.music-btn{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));width:54px;height:54px;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:var(--text);background:linear-gradient(145deg,rgba(255,236,218,.25),rgba(255,200,160,.08));border:1px solid var(--edge);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:inset 0 1px 0 rgba(255,240,225,.45),0 10px 30px rgba(20,5,20,.4);z-index:4;transition:.2s}
+.music-btn:hover{transform:scale(1.07)}.music-btn svg{width:22px;height:22px;fill:currentColor}
+.music-btn.on{animation:glow 2.4s infinite}@keyframes glow{50%{box-shadow:inset 0 1px 0 rgba(255,240,225,.45),0 0 28px rgba(255,170,100,.8)}}
+.player{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:calc(84px + env(safe-area-inset-bottom,0px));width:min(300px,calc(100vw - 36px));padding:18px;border-radius:24px;background:linear-gradient(145deg,rgba(255,236,218,.2),rgba(255,200,160,.06));border:1px solid var(--edge);backdrop-filter:blur(28px) saturate(170%);-webkit-backdrop-filter:blur(28px) saturate(170%);box-shadow:inset 0 1px 0 rgba(255,240,225,.45),0 20px 50px rgba(20,5,20,.45);z-index:4;opacity:0;transform:translateY(10px) scale(.97);pointer-events:none;transition:.25s}
+.player.open{opacity:1;transform:none;pointer-events:auto}
+.pt{font-weight:700;margin-bottom:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.player label{display:block;font-size:12px;color:var(--muted);margin:10px 0 4px}
+.player input[type=range]{width:100%;accent-color:var(--accent)}
+.pc{display:flex;justify-content:center;gap:12px;margin:10px 0}
+.pc button{width:40px;height:40px;border-radius:50%;border:1px solid var(--edge);background:var(--glass);color:var(--text);cursor:pointer;font-size:15px}
+.pc .big{width:48px;height:48px;background:linear-gradient(135deg,var(--accent),var(--accent2));border:0;color:#3a1a25}
+#plist{list-style:none;margin:12px 0 0;padding:0;max-height:110px;overflow:auto}
+#plist li{padding:7px 10px;border-radius:10px;font-size:13px;cursor:pointer;color:var(--muted)}
+#plist li:hover{background:var(--glass)}#plist li.cur{color:var(--text);background:rgba(255,200,150,.18)}
+@media(prefers-reduced-motion:reduce){.sway,.blob,.card,.fly{animation:none}}
+</style></head>
 <body>
-    <div class="topnav">
-        <a href="https://stuffzez.github.io/src/web/beta" target="_blank" style="background-color: rgb(255, 38, 0); text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; color: rgb(0, 255, 0); width: 100%;">&gt;&gt;&gt;&gt; BETA PROGRAM &lt;&lt;&lt;&lt;</a>
-        <a href="https://stuffzez.github.io/tools/nogauthlimit" target="_blank" style="background-color: rgb(235, 171, 52); text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; color: rgb(0, 255, 0); width: 100%;" [NEW PROJECT] >&gt;&gt;&gt;&gt; REMOVE GAUTHMATH QUESTION LIMIT &lt;&lt;&lt;&lt; [NEW PROJECT]</a>
+<div class="bg"><div class="sway"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="bgimg" id="bgimg"></div></div></div>
+<div class="shade"></div><div class="grain"></div>
+
+<main class="card">
+  <div class="top">
+    <div class="avatar" id="av"></div>
+    <div class="who"><h1 class="name" id="name"></h1><div class="tag" id="tag"></div></div>
+    <div class="status" id="status">
+        <i class="dot" id="sdot"></i>
+        <span id="stext"></span>
     </div>
-    <div class="topnav">
-        <a class="active" href="home">Home</a>
-        <a href="about">About</a>
-        <a href="https://stuffzez.github.io/src/web/leaving-page?to=https://github.com/StuffzEZ/stuffzez.github.io&prev=https://stuffzez.github.io">GitHub</a>
-        <a href="https://stuffzez.github.io/docs/index">Docs</a>
-        <a href="https://stuffzez.github.io/learn">Learn</a>
-        <a href="https://stuffzez.github.io/testBrowser?ref=home">testBrowser</a>
-        <a href="https://stuffzez.github.io/DocsBlog">DocsBlog</a>
-    </div>
-    <div class="header">
-        <h1>stuffzez.github.io</h1>
-    </div>
-    <br>
-    <div class="container">
-        <header>
-            <img src="https://stuffzez.github.io/library/images/stuffzezlogo.png" alt="Profile Picture"> <!-- Replace with your image URL -->
-            <h1>My Projects</h1>
-            <p><!--- LEAVE BLANK ---></p>
-        </header>
+  </div>
+  <div class="socials" id="socials"></div>
+  <p class="bio" id="bio"></p>
+  <hr>
+  <h2>Projects (not all, view my GitHub for all)</h2>
+  <div class="projects" id="projects"></div>
+</main>
 
-<!---        <section class="about">
-            <h2></h2>
-            <p></p>
-        </section> --->
+<button class="music-btn" id="mbtn" aria-label="Music controls"><svg viewBox="0 0 24 24"><path d="M9 3v12.3A3.5 3.5 0 1 0 11 18.5V8h7V3H9z"/></svg></button>
+<div class="player" id="player">
+  <div class="pt" id="ptitle"></div>
+  <input type="range" id="seek" min="0" max="100" value="0" aria-label="Seek">
+  <div class="pc"><button id="prev" aria-label="Previous">⏮</button><button id="pp" class="big" aria-label="Play or pause">▶</button><button id="next" aria-label="Next">⏭</button></div>
+  <label>Volume</label><input type="range" id="vol" min="0" max="100">
+  <ul id="plist"></ul>
+</div>
 
-        <section class="projects">
-            <h2>Projects</h2>
-            <div class="project-list">
-                <div class="project">
-                    <h3>testBrowser</h3>
-                    <p>Another Way To Browse The Internet Made By Both <a href="https://github.com/StuffzEZ" class="aelement" style="color: #ed7331;">Me</a> And <a href="https://github.com/s6-c" class="aelement" style="color: #ed7331;">s6-c</a></p>
-                    <a href="https://stuffzez.github.io/testBrowser" class="projecta">View</a>
-                </div>
-                <div class="project">
-                    <h3>Learn Coding</h3>
-                    <p>A Free Way To Learn The Basics Of HTML, Python And Markdown Made By <a href="https://github.com/StuffzEZ" class="aelement" style="color: #ed7331;">Me</a> And <a href="https://github.com/s6-c" class="aelement" style="color: #ed7331;">s6-c</a></p>
-                    <a href="https://stuffzez.github.io/Coding" class="projecta">View</a>
-                </div>
-                <h2>Check Out s6-c's Projects!</h2>
-                <div class="project">
-                    <h3>s6-c.github.io</h3>
-                    <p>s6-c's GitHub Pages Website</p>
-                    <a href="https://s6-c.github.io" class="projecta">View</a>
-                </div>
-            </div>
-        <br>
-        <section class="projects">
-            <h2>GitHub Organisations</h2>
-            <div class="project-list">
-                <div class="project">
-                    <h3>RedOptionStudios</h3>
-                    <p>A Roblox Games Studio Started By <a href="https://github.com/StuffzEZ" class="aelement" style="color: #ed7331;">Me</a> And <a href="https://github.com/s6-c" class="aelement" style="color: #ed7331;">s6-c</a></p>
-                    <a href="https://s6-c.github.io/RedOptionStudios" class="projecta">View</a>
-                </div>
-            </div>
-        </section>
+<script>
+/* ============================================================
+   CONFIG — edit everything here. No settings UI.
+   ============================================================ */
+const CONFIG = {
+  name: "Stuf_y",
+  handle: "@stuf_y (GitHub @StuffzEZ)",
+  avatar: "https://avatars.githubusercontent.com/u/158745985?v=4",            // "" = first letter of name, or an image URL / data: URI
+  bio: `NOTE: Sorry for the kinda bad backgrounds I might try to make them better but its all I could get in the short time i'm making this website!
 
-        <footer>
-            <p><a href="https://github.com/s6-c/s6-c.github.io">GitHub Repository</a> | <a href="https://github.com/StuffzEZ">GitHub Profile</a></p>
-            <p>PLEASE NOTE: This Is From <a href="https://s6-c.github.io">s6-c.github.io</a> But I Helped To Make That.</p>
-        </footer>
-    </div>
+  Hi! I am Stuf_y.. I like computers... I also make games.. Sometimes!`,
 
-    <!-- MAIN FOOTER -->
+  // Status pill next to your name. Strings or {text, colour}.
+  statuses: [
+    { text: "Developing development", colour: "#ffb36b" },
+    { text: "I use AI... Fairly.",     colour: "#8affb0" },
+    { text: "Everything Should be Free!",       colour: "#ff8fa3" },
+    { text: "i make cool stuff",          colour: "#ffd98a" },
+    { text: "hint: im not a giraffe", colour: "#ffb36b"},
+    { text: "i have many public socials", colour: "#ffd98a" },
+    { text: ":) Current project: Everything", colour: "#ffb36b" },
+    { text: "Aka StuffzEZ",     colour: "#8affb0" },
+    { text: "Too Many GitHub Organisations...",       colour: "#ff8fa3" },
+    { text: "Too Many Repos",          colour: "#ffd98a" },
+    { text: `A famous quote: "yesn't"`, colour: "#ffb36b"},
+    { text: "i also have GitLab: https://gitlab.com/StuffzEZ", colour: "#ffd98a" },
+    { text: "Check out my blog! https://stuffzez.github.io/Blog", colour: "#ffd98a" }
+  ],
+  statusSeconds: 5,
 
-    <footer style="background-color: black;"> <!-- FOOTER -->
-        <div class="commit">
-            <p>Latest Commit On <a href="https://github.com/StuffzEZ/stuffzez.github.io">GitHub</a></p>
-            <br>
-            <h3 id="message" class="commit">Loading...</h3>
-            <h3 id="desc" class="commit">Loading...</h3>
-            <h3 id="author" class="commit">Loading...</h3>
-        </div>
-        <br>
-        <div class="contact" >
-            <p>Contact & Info</p>
-            <p>This Website Was Made By <a href="https://linktr.ee/StuffzEZ">StuffzEZ</a> | View My Channel <a href="https://youtube.com/@YT.StuffzEZ">Here</a></p>
-            <p>Thank You For Visiting! See You Again Soon :)</p>
-        </div>
-    </footer>
-    <br>
-</body>
-</html>
+  // icon: github | discord | x | email | youtube | link
+  socials: [
+    { label: "GitHub",  icon: "github",  url: "https://github.com/StuffzEZ" },
+    { label: "GitLab",  icon: "link",  url: "https://gitlab.com/StuffzEZ" },
+    { label: "Blog",  icon: "link",  url: "https://stuffzez.github.io/Blog/" },
+    { label: "SFS (Stuf_y's Free Server)",  icon: "link",  url: "https://stuffzez.github.io/sfs/" }
+  ],
+
+  projects: [
+    { name: "Stuf_y's Free Server (SFS)",          desc: "A free server with loads of stuf, made by me, because _y not?", url: "https://stuffzez.github.io/sfs/" },
+    { name: "Disblog",       desc: "Start a Blog on GitHub pages, without a backendl; entirely with GitHub discussions.", url: "https://github.com/StuffzEZ/Disblog" },
+    { name: "Consent Manager", desc: "Consent Manager HTML Plugin that has GDPR compliance for GlitchTip/Sentry, Google Analytics and Microsoft clear view with intergration for each built in.",            url: "https://github.com/OptionallyBlueStudios/consent-manager" }
+  ],
+
+  // Page background (non-repeating, covers the page). "" = warm gradient.
+  // Use a URL to your own hosted image/GIF, or a data: URI.
+  backgrounds: [
+  "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXJic3ZpYTJhZW81ZWl4cGFqMzVnNDY1dmJsNXc4azIzMGU1Mmk4MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cjojgtiigyloyCg3r9/giphy.gif",
+  "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXJic3ZpYTJhZW81ZWl4cGFqMzVnNDY1dmJsNXc4azIzMGU1Mmk4MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cjojgtiigyloyCg3r9/giphy.gif",
+  "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzd5d2tidWhoZ3ZyNzY2dHlyZjU1YXRvY3p5OGNtaWtrcXB5OGdtMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/usOikM00Flk139pNEv/giphy.webp",
+  "https://i.giphy.com/eJoZAwRN9OI5QjthIE.webp"
+  ],
+  swayBackground: true,    // gentle cozy shaking
+
+  fireflies: 14,           // floating warm sparks, 0 to disable
+
+  music: {
+    builtIn: true,
+    autoplay: true,
+    volume: 0.6,
+    tracks: [
+      
+    ]
+  }
+};
+
+/* ============================================================ */
+const $ = id => document.getElementById(id);
+const ICONS = {
+  github:'<svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>',
+  discord:'<svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm5 5a1.4 1.4 0 1 0 0 2.800A1.400 1.400 0 0 0 9 9zm6 0a1.4 1.4 0 1 0 0 2.800A1.400 1.400 0 0 0 15 9z"/></svg>',
+  x:'<svg viewBox="0 0 24 24"><path d="M18.900 2h3.400l-7.400 8.500L23.600 22h-6.800l-5.300-7-6.100 7H2l7.900-9.100L1.700 2h7l4.800 6.400L18.900 2zm-1.200 18h1.900L7.400 3.900H5.400L17.700 20z"/></svg>',
+  email:'<svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1.500 2L12 12.500 19.500 7z"/></svg>',
+  youtube:'<svg viewBox="0 0 24 24"><path d="M22 8a3 3 0 0 0-2-2.200C18.200 5.300 12 5.300 12 5.300s-6.200 0-8 .5A3 3 0 0 0 2 8c-.4 2.600-.4 5.400 0 8a3 3 0 0 0 2 2.200c1.800.5 8 .5 8 .5s6.200 0 8-.5a3 3 0 0 0 2-2.200c.4-2.600.4-5.400 0-8zM10 15V9l5.200 3z"/></svg>',
+  link:'<svg viewBox="0 0 24 24"><path d="M10.600 13.400a1 1 0 0 1 0-1.400l3-3a1 1 0 1 1 1.400 1.400l-3 3a1 1 0 0 1-1.400 0zM7 17a4 4 0 0 1 0-5.700l2-2 1.400 1.400-2 2a2 2 0 1 0 2.800 2.800l2-2 1.400 1.400-2 2A4 4 0 0 1 7 17zm10-10a4 4 0 0 1 0 5.700l-2 2-1.400-1.400 2-2a2 2 0 1 0-2.800-2.800l-2 2L9.400 9.100l2-2A4 4 0 0 1 17 7z"/></svg>'
+};
+
+/* ---- content ---- */
+$("name").textContent = CONFIG.name;
+$("tag").textContent = CONFIG.handle;
+$("bio").textContent = CONFIG.bio;
+if (CONFIG.avatar) { $("av").style.backgroundImage = `url("${CONFIG.avatar}")`; }
+else { $("av").textContent = (CONFIG.name[0] || "?").toUpperCase(); }
+CONFIG.socials.forEach(s => {
+  const a = document.createElement("a");
+  a.href = s.url; a.title = s.label; a.target = "_blank"; a.rel = "noopener";
+  a.setAttribute("aria-label", s.label);
+  a.innerHTML = ICONS[s.icon] || ICONS.link;
+  $("socials").appendChild(a);
+});
+CONFIG.projects.forEach(p => {
+  const a = document.createElement("a");
+  a.className = "proj"; a.href = p.url; a.target = "_blank"; a.rel = "noopener";
+  const b = document.createElement("b"); b.textContent = p.name;
+  const s = document.createElement("span"); s.textContent = p.desc;
+  a.append(b, s); $("projects").appendChild(a);
+});
+
+/* ---- background, sway, fireflies ---- */
+if (CONFIG.backgrounds && CONFIG.backgrounds.length) {
+  const pick = CONFIG.backgrounds[Math.floor(Math.random() * CONFIG.backgrounds.length)];
+  $("bgimg").style.backgroundImage = `url("${pick}")`;
+  document.body.classList.add("hasbg");
+}
+if (!CONFIG.swayBackground) document.querySelector(".sway").style.animation = "none";
+for (let i = 0; i < CONFIG.fireflies; i++) {
+  const f = document.createElement("i"); f.className = "fly";
+  f.style.left = Math.random() * 100 + "vw";
+  f.style.animationDuration = 14 + Math.random() * 16 + "s";
+  f.style.animationDelay = -Math.random() * 25 + "s";
+  f.style.transform = `scale(${0.6 + Math.random() * 0.9})`;
+  document.body.appendChild(f);
+}
+
+/* ---- status rotation ---- */
+(function () {
+  const list = CONFIG.statuses.map(s => typeof s === "string" ? { text: s } : s);
+  if (!list.length) { $("status").style.display = "none"; return; }
+  let i = 0;
+  const show = () => {
+    $("stext").textContent = list[i].text;
+    const c = list[i].colour || "#ffb36b";
+    $("sdot").style.background = c; $("sdot").style.boxShadow = `0 0 10px ${c}`;
+  };
+  show();
+  if (list.length < 2) return;
+  setInterval(() => {
+    $("status").classList.add("out");
+    setTimeout(() => { i = (i + 1) % list.length; show(); $("status").classList.remove("out"); }, 450);
+  }, Math.max(2, CONFIG.statusSeconds) * 1000);
+})();
+
+/* ---- music ---- */
+const tracks = [];
+if (CONFIG.music.builtIn) tracks.push({ name: "Soft Real-Time Generated", synth: true });
+CONFIG.music.tracks.forEach(t => tracks.push(t));
+let cur = 0, playing = false, vol = CONFIG.music.volume, ctx, master, timers = [], noiseSrc, ci = 0;
+const audio = new Audio(); audio.volume = vol; $("vol").value = vol * 100;
+const chords = [[220,277.18,329.63,415.3],[174.61,220,261.63,329.63],[196,246.94,293.66,370],[164.81,207.65,246.94,311.13]];
+const penta = [440,493.88,554.37,659.25,739.99,880];
+
+function note(freq, t, dur, type, peak, dest) {
+  const o = ctx.createOscillator(), g = ctx.createGain();
+  o.type = type; o.frequency.value = freq;
+  g.gain.setValueAtTime(0, t);
+  g.gain.linearRampToValueAtTime(peak, t + (dur > 3 ? 2 : .02));
+  g.gain.exponentialRampToValueAtTime(.0001, t + dur);
+  o.connect(g); g.connect(dest); o.start(t); o.stop(t + dur + .1);
+}
+function chord() {
+  const t = ctx.currentTime;
+  chords[ci++ % 4].forEach(f => { note(f, t, 7, "sine", .22, master); note(f * 1.004, t, 7, "sine", .12, master); });
+}
+function chime() {
+  const t = ctx.currentTime, f = penta[Math.floor(Math.random() * penta.length)];
+  note(f, t, 2.2, "triangle", .12, master);
+}
+function startSynth() {
+  if (!ctx) {
+    ctx = new (window.AudioContext || window.webkitAudioContext)();
+    master = ctx.createGain(); master.gain.value = vol * .5;
+    const lp = ctx.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 1400;
+    master.connect(lp); lp.connect(ctx.destination);
+    // vinyl crackle
+    const buf = ctx.createBuffer(1, ctx.sampleRate * 3, ctx.sampleRate), d = buf.getChannelData(0);
+    for (let i = 0; i < d.length; i++) d[i] = Math.random() < .0008 ? (Math.random() * 2 - 1) * .8 : (Math.random() * 2 - 1) * .004;
+    noiseSrc = ctx.createBufferSource(); noiseSrc.buffer = buf; noiseSrc.loop = true;
+    const cg = ctx.createGain(); cg.gain.value = .5; noiseSrc.connect(cg); cg.connect(master); noiseSrc.start();
+  }
+  ctx.resume(); chord();
+  timers.push(setInterval(chord, 6000));
+  timers.push(setInterval(() => { if (Math.random() < .7) chime(); }, 2800));
+}
+function stopSynth() { timers.forEach(clearInterval); timers = []; if (ctx) ctx.suspend(); }
+
+function ui() { $("pp").textContent = playing ? "⏸" : "▶"; $("mbtn").classList.toggle("on", playing); }
+function play() { if (tracks[cur].synth) startSynth(); else audio.play().catch(() => {}); playing = true; ui(); }
+function pause() { audio.pause(); stopSynth(); playing = false; ui(); }
+function list() {
+  const ul = $("plist"); ul.innerHTML = "";
+  tracks.forEach((t, i) => {
+    const li = document.createElement("li"); li.textContent = t.name;
+    if (i === cur) li.className = "cur"; li.onclick = () => select(i, true); ul.appendChild(li);
+  });
+}
+function select(i, auto) {
+  pause(); cur = i; const t = tracks[i];
+  if (!t.synth) audio.src = t.url;
+  $("ptitle").textContent = t.name; $("seek").disabled = !!t.synth; $("seek").value = 0;
+  list(); if (auto) play();
+}
+if (!tracks.length) { $("mbtn").style.display = "none"; }
+else {
+  $("mbtn").onclick = () => $("player").classList.toggle("open");
+  $("pp").onclick = () => playing ? pause() : play();
+  $("next").onclick = () => select((cur + 1) % tracks.length, true);
+  $("prev").onclick = () => select((cur - 1 + tracks.length) % tracks.length, true);
+  $("vol").oninput = e => { vol = e.target.value / 100; audio.volume = vol; if (master) master.gain.value = vol * .5; };
+  $("seek").oninput = e => { if (audio.duration) audio.currentTime = e.target.value / 100 * audio.duration; };
+  audio.ontimeupdate = () => { if (audio.duration) $("seek").value = audio.currentTime / audio.duration * 100; };
+  audio.onended = () => select((cur + 1) % tracks.length, true);
+  select(0, false);
+  if (CONFIG.music.autoplay) {
+    const evs = ["pointerdown", "keydown", "touchstart"];
+    const cleanup = () => evs.forEach(e => removeEventListener(e, start));
+    const start = () => { if (!playing) play(); cleanup(); };
+    evs.forEach(e => addEventListener(e, start));
+    // Uploaded tracks can sometimes autoplay straight away
+    if (!tracks[cur].synth) audio.play().then(() => { playing = true; ui(); cleanup(); }).catch(() => {});
+  }
+}
+</script>
+</body></html>
