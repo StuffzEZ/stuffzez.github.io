@@ -1,0 +1,582 @@
+<!-- used ai to edit other pages into this page btw -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stuf_y's free music player</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/StuffzEZ/freeserver/refs/heads/main/stufyfreeserverbannerlogo.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+        
+        body {
+            background-color: #232325;
+            color: #c3c2cf;
+            font-family: "Roboto Mono", monospace;
+        }
+
+        .font-karla {
+            font-family: 'Karla', sans-serif;
+        }
+
+        .font-ubuntu {
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        /* Dotted underline link styling */
+        .dotted-link {
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-underline-offset: 6px;
+            text-decoration-thickness: 1.5px;
+        }
+
+        /* Custom scrollbar matching dark aesthetic */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3e3e42;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #585860;
+        }
+
+        /* Styling range sliders */
+        input[type=range] {
+            -webkit-appearance: none;
+            background: transparent;
+        }
+        input[type=range]:focus {
+            outline: none;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            cursor: pointer;
+            background: #343438;
+            border-radius: 3px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            height: 14px;
+            width: 14px;
+            border-radius: 50%;
+            background: #c3c2cf;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -4px;
+            transition: background 0.2s, transform 0.1s;
+        }
+        input[type=range]::-webkit-slider-thumb:hover {
+            background: #ffffff;
+            transform: scale(1.1);
+        }
+        input[type=range]::-moz-range-track {
+            width: 100%;
+            height: 6px;
+            cursor: pointer;
+            background: #343438;
+            border-radius: 3px;
+        }
+        input[type=range]::-moz-range-thumb {
+            height: 14px;
+            width: 14px;
+            border-radius: 50%;
+            background: #c3c2cf;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between items-center p-4 sm:p-6 text-center">
+
+    <!-- Top Navigation / Header Links -->
+    <header class="w-full max-w-xl flex justify-between items-center text-xs font-mono text-[#787788] py-2 border-b border-[#323236] mb-4">
+        <span>STUF_Y'S AUDIO PLAYER</span>
+        <a href="/" class="dotted-link text-[#a2a1b3] hover:text-white transition-colors">
+            back &rarr;
+        </a>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-xl w-full flex flex-col items-center my-auto py-2">
+        <!-- Server Banner Image -->
+
+        <!-- Title -->
+        <h1 class="text-2xl sm:text-3xl font-bold font-ubuntu text-white mb-2 tracking-tight">
+            stuf_y's audio player
+        </h1>
+
+        <!-- Subtitle / Tagline -->
+        <p class="font-karla text-sm sm:text-base text-[#a2a1b3] mb-6 max-w-md">
+            procedural lo-fi generative ambient synth & audio playout station. free tunes, because _y not?
+        </p>
+
+        <!-- Player Card Container -->
+        <div class="w-full bg-[#1b1b1d] border border-[#343438] rounded-2xl p-5 shadow-2xl flex flex-col gap-4 text-left">
+            
+            <!-- Canvas Visualizer -->
+            <div class="relative w-full h-24 bg-[#141415] rounded-xl overflow-hidden border border-[#2b2b2e]">
+                <canvas id="visualizer" class="w-full h-full block"></canvas>
+                <div id="vis-placeholder" class="absolute inset-0 flex items-center justify-center text-xs font-mono text-[#585766] pointer-events-none">
+                    [ audio visualizer idle ]
+                </div>
+            </div>
+
+            <!-- Track Meta Display -->
+            <div class="flex items-center justify-between gap-3 bg-[#232326] p-3 rounded-lg border border-[#2e2e32]">
+                <div class="overflow-hidden">
+                    <div class="text-xs text-[#787788] uppercase tracking-wider font-mono">Now Playing</div>
+                    <div id="track-title" class="font-ubuntu text-white font-medium text-base truncate">Loading track...</div>
+                    <div id="track-[#a2a1b3]" class="text-xs text-[#a2a1b3] font-karla truncate">Real-Time Ambient WebAudio Engine</div>
+                </div>
+                <div id="status-tag" class="px-2.5 py-1 text-[10px] font-mono rounded-full bg-[#2d2d31] text-[#a2a1b3] border border-[#3a3a40] shrink-0">
+                    SYNTH
+                </div>
+            </div>
+
+            <!-- Seek Bar & Timing -->
+            <div class="flex flex-col gap-1">
+                <input type="range" id="seek" min="0" max="100" value="0" class="w-full" aria-label="Track timeline position">
+                <div class="flex justify-between text-[11px] font-mono text-[#787788]">
+                    <span id="time-current">0:00</span>
+                    <span id="time-total">--:--</span>
+                </div>
+            </div>
+
+            <!-- Playback Controls -->
+            <div class="flex items-center justify-center gap-4 my-1">
+                <button id="btn-prev" title="Previous Track" aria-label="Previous Track" class="p-2.5 text-[#c3c2cf] hover:text-white hover:bg-[#2a2a2e] rounded-full transition-all active:scale-95">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+                </button>
+
+                <button id="btn-pp" title="Play or Pause" aria-label="Play or Pause" class="w-12 h-12 bg-white text-[#1b1b1d] rounded-full flex items-center justify-center hover:bg-[#e2e1ec] transition-all transform hover:scale-105 active:scale-95 shadow-md">
+                    <svg id="icon-play" class="w-5 h-5 fill-current translate-x-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg id="icon-pause" class="w-5 h-5 fill-current hidden" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+
+                <button id="btn-next" title="Next Track" aria-label="Next Track" class="p-2.5 text-[#c3c2cf] hover:text-white hover:bg-[#2a2a2e] rounded-full transition-all active:scale-95">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+                </button>
+            </div>
+
+            <!-- Volume Control & Extra Utility -->
+            <div class="flex items-center justify-between gap-3 pt-2 border-t border-[#2b2b2e]">
+                <!-- Volume -->
+                <div class="flex items-center gap-2 flex-1 max-w-[200px]">
+                    <svg class="w-4 h-4 text-[#787788] shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+                    </svg>
+                    <input type="range" id="vol" min="0" max="100" value="60" class="w-full" aria-label="Volume slider">
+                </div>
+
+                <!-- Custom Local File Upload -->
+                <label class="dotted-link text-xs font-ubuntu text-[#a2a1b3] hover:text-white cursor-pointer transition-colors shrink-0">
+                    + add local audio
+                    <input type="file" id="file-input" accept="audio/*" class="hidden" multiple>
+                </label>
+            </div>
+
+            <!-- Playlist / Track Selection -->
+            <div class="mt-2">
+                <div class="text-xs font-mono text-[#787788] mb-2 uppercase tracking-wider">Playlist Queue</div>
+                <ul id="playlist" class="flex flex-col gap-1.5 max-h-36 overflow-y-auto pr-1">
+                    <!-- Dynamic List Items -->
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full max-w-xl text-xs text-[#787788] font-mono py-4 border-t border-[#323236] mt-4 flex flex-col sm:flex-row justify-between items-center gap-2">
+        <div>&copy; 2026-present stufy</div>
+        <div class="flex gap-4">
+            <a href="/" class="dotted-link text-white hover:text-indigo-300 font-ubuntu transition-colors">
+                home
+            </a>
+            <a href="sfs" class="dotted-link text-white hover:text-indigo-300 font-ubuntu transition-colors">
+                sfs
+            </a>
+        </div>
+    </footer>
+
+    <!-- Audio Player Engine Script -->
+    <script>
+        /* Track state management */
+        const tracks = [
+            {
+                name: "[STFY] Stuf_y's Soft Real-Time Generative Synth",
+                artist: "WebAudio Ambient Engine",
+                synth: true
+            }
+        ];
+
+        let curIndex = 0;
+        let isPlaying = false;
+        let volume = 0.6;
+
+        // Web Audio Context & Synthesizer State
+        let audioCtx = null;
+        let masterGain = null;
+        let analyser = null;
+        let synthTimers = [];
+        let synthIndex = 0;
+        let noiseSource = null;
+
+        // HTML Audio element for streaming tracks
+        const audio = new Audio();
+        audio.crossOrigin = "anonymous";
+        audio.volume = volume;
+
+        // DOM Element Cache
+        const $ = id => document.getElementById(id);
+        const elTitle = $("track-title");
+        const elSeek = $("seek");
+        const elVol = $("vol");
+        const elTimeCurr = $("time-current");
+        const elTimeTot = $("time-total");
+        const elBtnPP = $("btn-pp");
+        const elIconPlay = $("icon-play");
+        const elIconPause = $("icon-pause");
+        const elPlaylist = $("playlist");
+        const elStatusTag = $("status-tag");
+        const elCanvas = $("visualizer");
+        const ctxCanvas = elCanvas.getContext("2d");
+        const elVisPlaceholder = $("vis-placeholder");
+
+        /* Musical scales for procedural synthesizer */
+        const synthChords = [
+            [220, 277.18, 329.63, 415.3],   // A minor 7 / C# variant
+            [174.61, 220, 261.63, 329.63],  // F maj7
+            [196, 246.94, 293.66, 370],     // G maj7
+            [164.81, 207.65, 246.94, 311.13] // E min7
+        ];
+        const synthPenta = [440, 493.88, 554.37, 659.25, 739.99, 880];
+
+        /* Initialize Audio Context */
+        function initAudioContext() {
+            if (!audioCtx) {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioContextClass();
+
+                masterGain = audioCtx.createGain();
+                masterGain.gain.value = volume * 0.5;
+
+                analyser = audioCtx.createAnalyser();
+                analyser.fftSize = 64;
+
+                const lowpass = audioCtx.createBiquadFilter();
+                lowpass.type = "lowpass";
+                lowpass.frequency.value = 1400;
+
+                masterGain.connect(lowpass);
+                lowpass.connect(analyser);
+                analyser.connect(audioCtx.destination);
+
+                // Vinyl crackle generator
+                const bufferSize = audioCtx.sampleRate * 3;
+                const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+                const output = noiseBuffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) {
+                    output[i] = Math.random() < 0.0008 ? (Math.random() * 2 - 1) * 0.8 : (Math.random() * 2 - 1) * 0.004;
+                }
+                noiseSource = audioCtx.createBufferSource();
+                noiseSource.buffer = noiseBuffer;
+                noiseSource.loop = true;
+
+                const crackleGain = audioCtx.createGain();
+                crackleGain.gain.value = 0.4;
+                noiseSource.connect(crackleGain);
+                crackleGain.connect(masterGain);
+                noiseSource.start();
+
+                // Connect HTML audio element to analyzer as well
+                try {
+                    const audioSource = audioCtx.createMediaElementSource(audio);
+                    audioSource.connect(analyser);
+                } catch (e) {
+                    // Fail silently if re-binding element source occurs
+                }
+            }
+        }
+
+        /* Synthesizer synth functions */
+        function playNote(freq, time, dur, type, peakVal) {
+            if (!audioCtx) return;
+            const osc = audioCtx.createOscillator();
+            const noteGain = audioCtx.createGain();
+            osc.type = type;
+            osc.frequency.value = freq;
+
+            noteGain.gain.setValueAtTime(0, time);
+            noteGain.gain.linearRampToValueAtTime(peakVal, time + (dur > 3 ? 2 : 0.02));
+            noteGain.gain.exponentialRampToValueAtTime(0.0001, time + dur);
+
+            osc.connect(noteGain);
+            noteGain.connect(masterGain);
+
+            osc.start(time);
+            osc.stop(time + dur + 0.1);
+        }
+
+        function triggerChord() {
+            if (!audioCtx || audioCtx.state !== 'running') return;
+            const now = audioCtx.currentTime;
+            const currentChord = synthChords[synthIndex++ % synthChords.length];
+            currentChord.forEach(f => {
+                playNote(f, now, 7, "sine", 0.20);
+                playNote(f * 1.004, now, 7, "sine", 0.10);
+            });
+        }
+
+        function triggerChime() {
+            if (!audioCtx || audioCtx.state !== 'running') return;
+            const now = audioCtx.currentTime;
+            const randomFreq = synthPenta[Math.floor(Math.random() * synthPenta.length)];
+            playNote(randomFreq, now, 2.5, "triangle", 0.12);
+        }
+
+        function startSynth() {
+            initAudioContext();
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            triggerChord();
+            synthTimers.push(setInterval(triggerChord, 6000));
+            synthTimers.push(setInterval(() => {
+                if (Math.random() < 0.7) triggerChime();
+            }, 2800));
+        }
+
+        function stopSynth() {
+            synthTimers.forEach(clearInterval);
+            synthTimers = [];
+            if (audioCtx && audioCtx.state === 'running') {
+                audioCtx.suspend();
+            }
+        }
+
+        /* Player Controls Logic */
+        function updateUI() {
+            const currentTrack = tracks[curIndex];
+            elTitle.textContent = currentTrack.name;
+            
+            if (isPlaying) {
+                elIconPlay.classList.add("hidden");
+                elIconPause.classList.remove("hidden");
+                elVisPlaceholder.classList.add("opacity-0");
+            } else {
+                elIconPlay.classList.remove("hidden");
+                elIconPause.classList.add("hidden");
+                elVisPlaceholder.classList.remove("opacity-0");
+            }
+
+            if (currentTrack.synth) {
+                elStatusTag.textContent = "SYNTH";
+                elStatusTag.className = "px-2.5 py-1 text-[10px] font-mono rounded-full bg-[#2d2d31] text-[#a2a1b3] border border-[#3a3a40] shrink-0";
+                elSeek.disabled = true;
+                elTimeTot.textContent = "∞";
+                elTimeCurr.textContent = "LIVE";
+            } else {
+                elStatusTag.textContent = "AUDIO";
+                elStatusTag.className = "px-2.5 py-1 text-[10px] font-mono rounded-full bg-[#1e2a38] text-[#8ab4f8] border border-[#2b3e55] shrink-0";
+                elSeek.disabled = false;
+            }
+
+            // Update Playlist Active Row
+            Array.from(elPlaylist.children).forEach((li, idx) => {
+                if (idx === curIndex) {
+                    li.className = "p-2 rounded-lg bg-[#2b2b2e] text-white flex justify-between items-center text-xs font-mono border border-[#3e3e42] cursor-pointer";
+                } else {
+                    li.className = "p-2 rounded-lg bg-[#1f1f21] hover:bg-[#262629] text-[#a2a1b3] hover:text-white flex justify-between items-center text-xs font-mono border border-transparent cursor-pointer transition-colors";
+                }
+            });
+        }
+
+        function play() {
+            initAudioContext();
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            const currentTrack = tracks[curIndex];
+            isPlaying = true;
+
+            if (currentTrack.synth) {
+                audio.pause();
+                startSynth();
+            } else {
+                stopSynth();
+                audio.play().catch(e => {
+                    console.log("Audio play blocked or failed: ", e);
+                });
+            }
+            updateUI();
+        }
+
+        function pause() {
+            isPlaying = false;
+            audio.pause();
+            stopSynth();
+            updateUI();
+        }
+
+        function selectTrack(idx, autoPlay = true) {
+            pause();
+            curIndex = idx;
+            const track = tracks[curIndex];
+
+            if (!track.synth) {
+                audio.src = track.url;
+                audio.load();
+            }
+
+            elSeek.value = 0;
+            updateUI();
+
+            if (autoPlay) {
+                play();
+            }
+        }
+
+        function renderPlaylist() {
+            elPlaylist.innerHTML = "";
+            tracks.forEach((t, i) => {
+                const li = document.createElement("li");
+                li.onclick = () => selectTrack(i, true);
+
+                const leftDiv = document.createElement("div");
+                leftDiv.className = "truncate pr-2 font-ubuntu";
+                leftDiv.textContent = `${i + 1}. ${t.name}`;
+
+                const rightBadge = document.createElement("span");
+                rightBadge.className = "text-[10px] font-mono opacity-60 shrink-0";
+                rightBadge.textContent = t.synth ? "[SYNTH]" : "[FILE]";
+
+                li.appendChild(leftDiv);
+                li.appendChild(rightBadge);
+                elPlaylist.appendChild(li);
+            });
+        }
+
+        function formatTime(secs) {
+            if (isNaN(secs)) return "0:00";
+            const m = Math.floor(secs / 60);
+            const s = Math.floor(secs % 60);
+            return `${m}:${s < 10 ? '0' : ''}${s}`;
+        }
+
+        /* File Upload Handling */
+        $("file-input").addEventListener("change", function(e) {
+            const files = e.target.files;
+            if (!files.length) return;
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const objectURL = URL.createObjectURL(file);
+                tracks.push({
+                    name: file.name.replace(/\.[^/.]+$/, ""),
+                    artist: "Local Upload",
+                    url: objectURL,
+                    synth: false
+                });
+            }
+            renderPlaylist();
+            selectTrack(tracks.length - files.length, true);
+        });
+
+        /* Event Listeners */
+        elBtnPP.onclick = () => isPlaying ? pause() : play();
+        $("btn-next").onclick = () => selectTrack((curIndex + 1) % tracks.length, true);
+        $("btn-prev").onclick = () => selectTrack((curIndex - 1 + tracks.length) % tracks.length, true);
+
+        elVol.oninput = (e) => {
+            volume = e.target.value / 100;
+            audio.volume = volume;
+            if (masterGain) {
+                masterGain.gain.value = volume * 0.5;
+            }
+        };
+
+        elSeek.oninput = (e) => {
+            if (!tracks[curIndex].synth && audio.duration) {
+                audio.currentTime = (e.target.value / 100) * audio.duration;
+            }
+        };
+
+        audio.ontimeupdate = () => {
+            if (!tracks[curIndex].synth && audio.duration) {
+                elSeek.value = (audio.currentTime / audio.duration) * 100;
+                elTimeCurr.textContent = formatTime(audio.currentTime);
+                elTimeTot.textContent = formatTime(audio.duration);
+            }
+        };
+
+        audio.onended = () => {
+            selectTrack((curIndex + 1) % tracks.length, true);
+        };
+
+        /* Canvas Visualizer Render Loop */
+        function drawVisualizer() {
+            requestAnimationFrame(drawVisualizer);
+
+            const width = elCanvas.width;
+            const height = elCanvas.height;
+
+            ctxCanvas.clearRect(0, 0, width, height);
+
+            if (!analyser || !isPlaying) {
+                // Subtle baseline when inactive
+                ctxCanvas.fillStyle = "#2a2a2d";
+                ctxCanvas.fillRect(0, height / 2, width, 1);
+                return;
+            }
+
+            const bufferLength = analyser.frequencyBinCount;
+            const dataArray = new Uint8Array(bufferLength);
+            analyser.getByteFrequencyData(dataArray);
+
+            const barWidth = (width / bufferLength) * 1.5;
+            let barHeight;
+            let x = 0;
+
+            for (let i = 0; i < bufferLength; i++) {
+                barHeight = (dataArray[i] / 255) * height * 0.85;
+
+                // Color calculation: soft monochrome cool grays matching #c3c2cf
+                const alpha = 0.3 + (dataArray[i] / 255) * 0.7;
+                ctxCanvas.fillStyle = `rgba(195, 194, 207, ${alpha})`;
+
+                // Render rounded bars centered vertically
+                const y = (height - barHeight) / 2;
+                ctxCanvas.fillRect(x, y, barWidth - 2, barHeight);
+
+                x += barWidth;
+            }
+        }
+
+        // Adjust Canvas internal resolution
+        function resizeCanvas() {
+            elCanvas.width = elCanvas.clientWidth * window.devicePixelRatio;
+            elCanvas.height = elCanvas.clientHeight * window.devicePixelRatio;
+        }
+
+        window.addEventListener("resize", resizeCanvas);
+
+        /* Initial Setup */
+        window.onload = () => {
+            resizeCanvas();
+            renderPlaylist();
+            selectTrack(0, false);
+            drawVisualizer();
+        };
+    </script>
+</body>
+</html>
