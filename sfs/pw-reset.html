@@ -286,7 +286,10 @@ ${lastEncryptedResult}
 
                 const temp = document.createElement("textarea");
                 document.body.appendChild(temp);
-                temp.value = lastEncryptedResult;
+                temp.value = `
+                    # START EMAIL
+                    ${lastEncryptedResult};
+                    # END EMAIL`;
                 temp.select();
                 try {
                     document.execCommand("copy");
