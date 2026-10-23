@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stuf_y's sfs password reset tool</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/StuffzEZ/freeserver/refs/heads/main/stufyfreeserverbannerlogo.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- JSEncrypt Library for RSA Encryption -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/3.3.2/jsencrypt.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+        
+        body {
+            background-color: #232325;
+            color: #c3c2cf;
+            font-family: "Roboto Mono", monospace;
+        }
+
+        .font-karla {
+            font-family: 'Karla', sans-serif;
+        }
+
+        .font-ubuntu {
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        /* Dotted underline link styling */
+        .dotted-link {
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-underline-offset: 6px;
+            text-decoration-thickness: 1.5px;
+        }
+
+        /* Custom scrollbar matching dark aesthetic */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3e3e42;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #585860;
+        }
+
+        /* Custom Input styling focus highlights */
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #585860 !important;
+            box-shadow: 0 0 0 1px #585860;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between items-center p-6 text-center">
+
+    <!-- Top Navigation / Header Links -->
+    <header class="w-full max-w-xl flex justify-between items-center text-xs font-mono text-[#787788] py-2 border-b border-[#323236] mb-4">
+        <span>STUF_Y'S SFS RESET TOOL</span>
+        <a href="https://auth.stufy.qzz.io" target="_blank" rel="noopener noreferrer" class="dotted-link text-[#a2a1b3] hover:text-white transition-colors">
+            sfs dashboard &rarr;
+        </a>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-xl w-full flex flex-col items-center my-auto py-2">
+        <!-- Banner Image Logo -->
+        <div class="mb-6 max-w-md w-full px-4">
+            <img src="https://github.com/StuffzEZ/freeserver/blob/main/stufyfreeserverbanner.png?raw=true" alt="stuf_y's free server banner" class="w-full h-auto object-contain mx-auto">
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-2xl sm:text-3xl font-bold font-ubuntu text-white mb-2 tracking-tight">
+            stuf_y's sfs password reset tool
+        </h1>
+
+        <!-- Subtitle / Tagline -->
+        <p class="font-karla text-sm sm:text-base text-[#a2a1b3] mb-6 max-w-md leading-relaxed">
+            enter your account email to encrypt it with the key and issue a reset request.
+        </p>
+
+        <!-- Main Card Container -->
+        <div class="w-full bg-[#1b1b1d] border border-[#343438] rounded-2xl p-5 sm:p-6 shadow-2xl flex flex-col gap-5 text-left">
+
+            <!-- Email Input Field -->
+            <div class="flex flex-col gap-1.5">
+                <label for="email-input" class="text-xs font-mono text-[#787788] uppercase tracking-wider flex justify-between">
+                    <span>Account Email</span>
+                    <span id="email-validation-msg" class="text-red-400 normal-case hidden">enter a valid email address</span>
+                </label>
+                <input type="email" id="email-input" placeholder="user@example.com" class="w-full bg-[#141415] border border-[#2b2b2e] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-[#585766] font-mono transition-all" autocomplete="email">
+            </div>
+
+            <!-- Action Button -->
+            <button id="btn-encrypt" class="w-full py-3 bg-white text-[#1b1b1d] rounded-xl font-ubuntu font-bold text-sm flex items-center justify-center gap-2 hover:bg-[#e2e1ec] transition-all transform hover:scale-[1.01] active:scale-[0.99] shadow-md">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3 3.1-3 1.71 0 3.1 1.29 3.1 3v2z"/>
+                </svg>
+                <span id="btn-encrypt-text">Encrypt Email &amp; Generate Payload</span>
+            </button>
+
+            <!-- Encrypted Output Block -->
+            <div id="output-section" class="flex flex-col gap-2 pt-2 border-t border-[#2b2b2e]">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-mono text-[#787788] uppercase tracking-wider">Encrypted Email Output</span>
+                    <button id="btn-copy" disabled class="dotted-link text-xs font-ubuntu text-[#585766] cursor-not-allowed transition-colors">
+                        copy output
+                    </button>
+                </div>
+
+                <div class="relative w-full bg-[#141415] rounded-xl p-3 border border-[#2b2b2e] min-h-[90px] flex items-center justify-center">
+                    <pre id="encrypted-output" class="w-full text-[11px] font-mono text-[#a2a1b3] whitespace-pre-wrap break-all hidden select-text"></pre>
+                    <div id="encrypted-placeholder" class="text-xs font-mono text-[#585766] text-center">
+                        [ encrypted email string will appear here ]
+                    </div>
+                </div>
+            </div>
+
+            <!-- GitHub Dispatch Section -->
+            <div id="dispatch-section" class="flex flex-col gap-3 pt-2 border-t border-[#2b2b2e] opacity-50 pointer-events-none transition-all">
+                <div class="text-xs font-mono text-[#787788] uppercase tracking-wider">Submit Request</div>
+                <p class="text-xs font-karla text-[#a2a1b3] leading-relaxed">
+                    Click below to open a pre-filled GitHub issue containing only your encrypted email for password recovery processing.
+                </p>
+
+                <a id="github-issue-link" href="#" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 bg-[#232326] hover:bg-[#2d2d31] border border-[#3e3e42] text-white rounded-xl text-xs font-mono flex items-center justify-center gap-2 transition-all mt-1 shadow-sm">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                    <span>Open GitHub Issue Request &rarr;</span>
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 bg-[#2e2e32] border border-[#484850] text-white text-xs font-mono px-4 py-2 rounded-xl shadow-xl transition-all opacity-0 pointer-events-none translate-y-2 z-50">
+        Copied to clipboard!
+    </div>
+
+    <!-- Copyright Footer matching original structure -->
+    <footer class="text-xs text-[#787788] font-mono py-4 border-t border-[#323236] w-full max-w-xl mt-4">
+        &copy; 2026-present stufy | <a href="https://github.com/StuffzEZ/freeserver/issues/new?template=password-reset.md" target="_blank" rel="noopener noreferrer" class="dotted-link text-white hover:text-indigo-300 font-ubuntu transition-colors duration-200">report an issue</a>
+    </footer>
+
+    <!-- Logic Script -->
+    <script>
+        const PRIMARY_KEY_URL = "public.pem";
+        const FALLBACK_KEY_URL = "public.pem";
+
+        // Default RSA 2048 fallback key string in case fetch requests fail
+        const DEFAULT_EMBEDDED_KEY = `no`;
+
+        let activePublicKey = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const emailInput = document.getElementById('email-input');
+            const emailValMsg = document.getElementById('email-validation-msg');
+            const btnEncrypt = document.getElementById('btn-encrypt');
+            const btnEncryptText = document.getElementById('btn-encrypt-text');
+            const encryptedOutput = document.getElementById('encrypted-output');
+            const encryptedPlaceholder = document.getElementById('encrypted-placeholder');
+            const btnCopy = document.getElementById('btn-copy');
+            const dispatchSection = document.getElementById('dispatch-section');
+            const githubIssueLink = document.getElementById('github-issue-link');
+
+            const toast = document.getElementById('toast');
+
+            let lastEncryptedResult = "";
+
+            // Auto-fetch Public Key from public.pem or GitHub raw
+            async function initPublicKey() {
+                try {
+                    const res = await fetch(PRIMARY_KEY_URL);
+                    if (res.ok) {
+                        activePublicKey = await res.text();
+                        return;
+                    }
+                } catch (e) {
+                    console.warn("Primary public.pem fetch failed, trying fallback URL...");
+                }
+
+                try {
+                    const resFb = await fetch(FALLBACK_KEY_URL);
+                    if (resFb.ok) {
+                        activePublicKey = await resFb.text();
+                        return;
+                    }
+                } catch (e) {
+                    console.warn("Fallback fetch failed, using internal fallback key.");
+                }
+
+                // Fallback to embedded default key
+                activePublicKey = DEFAULT_EMBEDDED_KEY;
+            }
+
+            // Local key file loading fallback
+
+            function validateEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).toLowerCase());
+            }
+
+            // Encrypt button handler
+            btnEncrypt.addEventListener('click', () => {
+                const email = emailInput.value.trim();
+
+                if (!email || !validateEmail(email)) {
+                    emailValMsg.classList.remove('hidden');
+                    emailInput.classList.add('border-red-500');
+                    return;
+                } else {
+                    emailValMsg.classList.add('hidden');
+                    emailInput.classList.remove('border-red-500');
+                }
+
+                if (!activePublicKey) {
+                    showToast("Public key not loaded yet!");
+                    return;
+                }
+
+                btnEncrypt.disabled = true;
+                btnEncryptText.textContent = "Encrypting Email...";
+
+                try {
+                    // Encrypt email using JSEncrypt
+                    const encryptor = new JSEncrypt();
+                    encryptor.setPublicKey(activePublicKey);
+                    const encrypted = encryptor.encrypt(email);
+
+                    if (!encrypted) {
+                        throw new Error("RSA Encryption failed. Check public key format.");
+                    }
+
+                    lastEncryptedResult = encrypted;
+
+                    // Display result
+                    encryptedOutput.textContent = `
+                    # START EMAIL
+                    ${lastEncryptedResult};
+                    # END EMAIL
+                    `
+                    encryptedOutput.classList.remove('hidden');
+                    encryptedPlaceholder.classList.add('hidden');
+
+                    // Enable Copy button
+                    btnCopy.disabled = false;
+                    btnCopy.classList.remove('text-[#585766]', 'cursor-not-allowed');
+                    btnCopy.classList.add('text-[#a2a1b3]', 'hover:text-white');
+
+                    // Enable GitHub Issue section
+                    dispatchSection.classList.remove('opacity-50', 'pointer-events-none');
+
+                    // Populate GitHub Issue link with ONLY the encrypted email payload
+                    const issueTitle = encodeURIComponent("Password Reset Request");
+                    const issueBody = encodeURIComponent(
+`### SFS Password Reset Request
+
+\`\`\`
+${lastEncryptedResult}
+\`\`\``
+                    );
+
+                    githubIssueLink.href = `https://github.com/StuffzEZ/freeserver/issues/new?template=password-reset.md`;
+
+                    showToast("Email encrypted successfully!");
+                } catch (err) {
+                    console.error(err);
+                    showToast("Failed to encrypt email with key.");
+                } finally {
+                    btnEncrypt.disabled = false;
+                    btnEncryptText.textContent = "Encrypt Email & Generate Payload";
+                }
+            });
+
+            // Clipboard Copy
+            btnCopy.addEventListener('click', () => {
+                if (!lastEncryptedResult) return;
+
+                const temp = document.createElement("textarea");
+                document.body.appendChild(temp);
+                temp.value = lastEncryptedResult;
+                temp.select();
+                try {
+                    document.execCommand("copy");
+                    showToast("Encrypted string copied to clipboard!");
+                } catch (e) {
+                    showToast("Failed to copy.");
+                }
+                document.body.removeChild(temp);
+            });
+
+            // Toast helper
+            let toastTimer;
+            function showToast(msg) {
+                toast.textContent = msg;
+                toast.classList.remove('opacity-0', 'translate-y-2');
+                toast.classList.add('opacity-100', 'translate-y-0');
+
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(() => {
+                    toast.classList.remove('opacity-100', 'translate-y-0');
+                    toast.classList.add('opacity-0', 'translate-y-2');
+                }, 2800);
+            }
+
+            // Trigger key fetch
+            initPublicKey();
+        });
+    </script>
+</body>
+</html>
