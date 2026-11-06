@@ -1,0 +1,229 @@
+/* Photo Gallery Styles */
+
+/* Folder card in gallery */
+.folder-card {
+    width: 100%;
+    border: 1px solid #323236;
+    border-radius: 12px;
+    background: #1a1a1c;
+    padding: 16px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.folder-card:hover {
+    border-color: #e8a040;
+    background: #222228;
+    transform: translateY(-1px);
+}
+
+/* Photo card in grid */
+.photo-card {
+    width: 100%;
+    border: 1px solid #323236;
+    border-radius: 12px;
+    background: #1a1a1c;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.photo-card:hover {
+    border-color: #585860;
+    background: #222228;
+}
+
+/* Thumbnail image */
+.photo-thumb {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #2a2a2e;
+}
+
+/* Photo caption area */
+.photo-caption {
+    padding: 14px 16px 10px;
+}
+
+.photo-title {
+    font-family: 'Karla', sans-serif;
+    font-size: 15px;
+    color: #e8e6f0;
+    margin-bottom: 4px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.photo-dimensions {
+    font-size: 11px;
+    color: #787788;
+    margin-top: 2px;
+}
+
+/* Disclaimers */
+.disclaimer {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 10px;
+    color: #787788;
+    line-height: 1.6;
+    padding: 10px 16px;
+    background: #151517;
+    border-top: 1px solid #2a2a2e;
+    text-align: left;
+}
+
+.disclaimer strong {
+    color: #a2a1b3;
+}
+
+/* Download buttons row */
+.download-row {
+    display: flex;
+    gap: 8px;
+    padding: 0 16px 16px;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    background: #2a2a2e;
+    border: 1px solid #3e3e42;
+    border-radius: 8px;
+    color: #a2a1b3;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+.download-btn:hover {
+    background: #3e3e42;
+    border-color: #e8a040;
+    color: #e8e6f0;
+}
+
+.download-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Breadcrumb navigation */
+#breadcrumb {
+    font-family: 'Roboto Mono', monospace;
+}
+
+.breadcrumb-item {
+    color: #585860;
+    text-decoration: none;
+    padding: 2px 8px;
+    border-radius: 4px;
+    transition: all 0.15s ease;
+}
+
+.breadcrumb-item:hover {
+    color: #e8e6f0;
+    background: #323236;
+}
+
+.breadcrumb-sep {
+    color: #3e3e42;
+    padding: 2px 4px;
+}
+
+/* Section title (current folder) */
+.section-title {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #e8e6f0;
+    padding: 14px 0 10px;
+    border-bottom: 1px solid #323236;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-title::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 14px;
+    background: #e8a040;
+    border-radius: 2px;
+}
+
+/* Grid layout for photos */
+.photos-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+/* Loading spinner */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    color: #585860;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+}
+
+.loading::after {
+    content: '';
+    margin-left: 8px;
+    animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
+}
+
+/* Fade in animation for cards */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.folder-card,
+.photo-card {
+    animation: fadeIn 0.2s ease forwards;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .download-row {
+        flex-direction: column;
+    }
+    
+    .download-btn {
+        justify-content: center;
+    }
+}
+
+/* Modal animations */
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+#photo-modal:not(.hidden) > div {
+    animation: modalFadeIn 0.2s ease forwards;
+}
+
+/* Close on backdrop click */
+#photo-modal {
+    cursor: default;
+}
+
+#photo-modal > div {
+    cursor: default;
+}

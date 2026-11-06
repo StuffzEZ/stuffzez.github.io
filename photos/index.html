@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stuf_y's photos</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/StuffzEZ/freeserver/refs/heads/main/stufyfreeserverbannerlogo.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Gallery data manifest -->
+    <script src="gallery-data.js"></script>
+    <!-- Gallery styles & logic -->
+    <link rel="stylesheet" href="gallery.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+        
+        body {
+            background-color: #232325;
+            color: #c3c2cf;
+            font-family: "Roboto Mono", monospace;
+        }
+
+        .font-karla {
+            font-family: 'Karla', sans-serif;
+        }
+
+        .font-ubuntu {
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        /* Dotted underline link styling */
+        .dotted-link {
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-underline-offset: 6px;
+            text-decoration-thickness: 1.5px;
+        }
+
+        /* Custom scrollbar matching dark aesthetic */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3e3e42;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #585860;
+        }
+
+        /* Photo page header accent */
+        .photo-header-accent {
+            color: #e8a040;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between items-center p-6 text-center">
+
+    <!-- Top Navigation / Header Links -->
+    <header class="w-full max-w-2xl flex justify-between items-center text-xs font-mono text-[#787788] py-3 border-b border-[#323236] mb-6">
+        <a href="/" class="text-[#a2a1b3] hover:text-white transition-colors dotted-link">
+            &larr; back
+        </a>
+        <span class="photo-header-accent font-ubuntu text-sm tracking-wider">PHOTO GALLERY</span>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-2xl w-full flex flex-col items-center my-auto py-4">
+
+        <!-- Title -->
+        <h1 class="text-3xl sm:text-4xl font-bold font-ubuntu text-white mb-3 tracking-tight">
+            stuf_y's <span class="photo-header-accent">photos</span>
+        </h1>
+
+        <!-- Subtitle / Tagline -->
+        <p class="font-karla text-sm sm:text-base text-[#a2a1b3] mb-8 max-w-md leading-relaxed">
+            i sometimes take photos... sometimes i put them on here... im not the best but im good..
+        </p>
+
+        <!-- Folder breadcrumb navigation -->
+        <nav id="breadcrumb" class="w-full flex flex-wrap items-center gap-1 text-xs font-mono text-[#787788] mb-6 pb-4 border-b border-[#323236]"></nav>
+
+        <!-- Photo grid -->
+        <section id="gallery" class="w-full flex flex-col items-center gap-8"></section>
+
+        <p id="empty-state" class="font-karla text-sm text-[#787788] hidden">no photos here yet</p>
+
+    </main>
+
+    <!-- Gallery JS -->
+    <script src="gallery.js"></script>
+
+    <!-- Photo Modal/Lightbox -->
+    <div id="photo-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm">
+        <div class="relative max-w-4xl w-full max-h-full flex flex-col bg-[#1a1a1c]">
+            <!-- Close button -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-white hover:text-[#e8a040] transition-colors z-10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+                
+            <!-- Click outside to close -->
+            <div class="absolute inset-0 -m-4" onclick="closeModal()"></div>
+            
+            <!-- Modal content -->
+            <div class="bg-[#1a1a1c] border border-[#323236] rounded-xl overflow-hidden max-h-[85vh] flex flex-col">
+                <!-- Image -->
+                <div class="flex-shrink-0 overflow-auto">
+                    <img id="modal-img" src="" alt="" class="max-w-full max-h-[60vh] object-contain mx-auto block">
+                </div>
+                
+                <!-- Info section -->
+                <div class="p-6">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-[#e8a040] font-ubuntu text-sm">📁</span>
+                        <span id="modal-folder" class="font-karla text-lg text-white font-medium"></span>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-[#787788] text-xs font-mono">Filename:</span>
+                        <span id="modal-filename" class="text-[#c3c2cf] text-xs font-mono"></span>
+                    </div>
+                    
+                    <!-- Disclaimers -->
+                    <div class="disclaimer mb-4">
+                        <div><strong>&copy; stufy</strong> - All rights reserved</div>
+                        <div style="margin-top: 4px;">&#9888; Not for commercial use. Do not redistribute without permission.</div>
+                    </div>
+                    
+                    <!-- Download buttons -->
+                    <div class="download-row flex-wrap">
+                        <a id="modal-low" href="#" class="download-btn" download>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> low res
+                        </a>
+                        <a id="modal-high" href="#" class="download-btn" download>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> high res
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-xs text-[#787788] font-mono py-5 border-t border-[#323236] w-full max-w-2xl mt-8">
+        <div class="flex justify-center items-center gap-4 flex-wrap">
+            <span>&copy; 2026-present stufy</span>
+            <span class="text-[#585860]">|</span>
+            <span>not for commercial use</span>
+            <span class="text-[#585860]">|</span>
+            <a href="https://github.com/StuffzEZ/stuffzez.github.io/issues" target="_blank" rel="noopener noreferrer" class="dotted-link text-[#a2a1b3] hover:text-white font-ubuntu transition-colors duration-200">report an issue</a>
+        </div>
+    </footer>
+</body>
+</html>
