@@ -8,9 +8,10 @@
         download: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>`
     };
 
-    // Get display name from path (last segment)
+    // Get display name from path (last segment, strip _done marker)
     function getNameFromPath(path) {
-        return path.split('/').pop();
+        const raw = path.split('/').pop();
+        return raw.replace(/_done(?=\.(png|jpg|jpeg)$)/i, '');
     }
 
     // Get readable folder name
@@ -42,12 +43,30 @@
         return ASSET_PREFIX + p;
     }
 
+    // Extract base name without _done or extension (e.g. "foo_done.png" -> "foo")
+    function getBaseName(filePath) {
+        const fn = filePath.split('/').pop();
+        return fn.replace(/_done(\.(png|jpg))$/, '').replace(/\.(png|jpg)$/, '');
+    }
+    // Build thumb/low paths from a _done source path: dir/foo_done.png -> dir/foo_done_thumb.png
+    function buildVariants(path) {
+        const idx = path.lastIndexOf('.');
+        const base = path.substring(0, idx);
+        const ext  = path.substring(idx);
+        return {
+            thumb: assetPath(base + '_thumb' + ext),
+            low:   assetPath(base + '_low'  + ext),
+            hi:    assetPath(path),
+        };
+    }
+
     // Render photo card
     function renderPhotoCard(path, currentPath) {
         const filename = getNameFromPath(path);
-        const thumbPath = assetPath(path.replace('.png', '_thumb.png'));
-        const lowPath = assetPath(path.replace('.png', '_low.png'));
-        const hiPath = assetPath(path);
+        const v = buildVariants(path);
+        const thumbPath = v.thumb;
+        const lowPath   = v.low;
+        const hiPath    = v.hi;
         const folderName = currentPath ? getFolderName(currentPath) : 'root';
 
         return `
@@ -185,7 +204,7 @@
         modalImg.src = path;
         modalImg.alt = `${folderName} - ${path.split('/').pop()}`;
         modalFolder.textContent = folderName;
-        modalFilename.textContent = path.split('/').pop().replace('.png', '');
+        modalFilename.textContent = path.split('/').pop().replace(/\.png$/, '').replace(/_done$/, '');
 
         // Set download links
         if (modalLow) modalLow.href = lowPath;
