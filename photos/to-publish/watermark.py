@@ -40,15 +40,15 @@ def add_watermark(image_path: Path, output_path: Path):
         # (x, y, text, fill)
         positions = [
             # Top-left corner - main watermark
-            (15, 15, "stuf_y", (255, 255, 255, 50)),
+                        (15, 15, "stuf_y", (255, 255, 255, 50), "lt"),
             # Bottom-right corner - mirrored
-            (img.width - 15, img.height - 15, "stuf_y", (255, 255, 255, 40), "br"),
+                        (img.width - 15, img.height - 15, "stuf_y", (255, 255, 255, 40), "rb"),
             # Center - faint diagonal watermark
-            (img.width // 2, img.height // 2, "stuf_y", (255, 255, 255, 25), "c"),
+                        (img.width // 2, img.height // 2, "stuf_y", (255, 255, 255, 25), "mm"),
             # Top-right - site URL
-            (img.width - 15, 15, "stuffzez.github.io/photos/", (255, 255, 255, 30), "tr"),
+                        (img.width - 15, 15, "stuffzez.github.io/photos/", (255, 255, 255, 30), "rt"),
             # Bottom-left - site URL
-            (15, img.height - 15, "stuffzez.github.io/photos/", (255, 255, 255, 35), "bl"),
+                        (15, img.height - 15, "stuffzez.github.io/photos/", (255, 255, 255, 35), "lb"),
         ]
 
         for x, y, text, fill, anchor in positions:
