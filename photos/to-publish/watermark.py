@@ -16,11 +16,12 @@ except ImportError:
     sys.exit(1)
 
 
-def add_watermark(image_path: Path, output_path: Path, watermark_text: str = "stufy"):
+def add_watermark(image_path: Path, output_path: Path):
     """
     Add a hard-to-remove watermark to an image.
     Uses multiple watermarks at different positions and opacities
     to make removal difficult while keeping the watermark subtle.
+    Bottom-left and top-right carry the site URL; other corners use 'stuf_y'.
     """
     try:
         img = Image.open(image_path).convert("RGBA")
@@ -34,28 +35,24 @@ def add_watermark(image_path: Path, output_path: Path, watermark_text: str = "st
         except (IOError, OSError):
             font = ImageFont.load_default()
 
-        # Get text dimensions for positioning
-        bbox = draw.textbbox((0, 0), watermark_text, font=font)
-        text_width = bbox[2] - bbox[0]
-        text_height = bbox[3] - bbox[1]
-
         # Watermark positions - multiple placements make it harder to remove
         # Each position uses different opacity for subtle but persistent marks
+        # (x, y, text, fill)
         positions = [
             # Top-left corner - main watermark
-            (15, 15, (255, 255, 255, 50)),
+            (15, 15, "stuf_y", (255, 255, 255, 50)),
             # Bottom-right corner - mirrored
-            (img.width - text_width - 15, img.height - text_height - 15, (255, 255, 255, 40)),
+            (img.width - 15, img.height - 15, "stuf_y", (255, 255, 255, 40), "br"),
             # Center - faint diagonal watermark
-            (img.width // 2 - text_width // 2, img.height // 2 - text_height // 2, (255, 255, 255, 25)),
-            # Top-right - small secondary mark
-            (img.width - text_width - 15, 15, (255, 255, 255, 30)),
-            # Bottom-left - small secondary mark
-            (15, img.height - text_height - 15, (255, 255, 255, 35)),
+            (img.width // 2, img.height // 2, "stuf_y", (255, 255, 255, 25), "c"),
+            # Top-right - site URL
+            (img.width - 15, 15, "stuffzez.github.io/photos/", (255, 255, 255, 30), "tr"),
+            # Bottom-left - site URL
+            (15, img.height - 15, "stuffzez.github.io/photos/", (255, 255, 255, 35), "bl"),
         ]
 
-        for x, y, fill in positions:
-            draw.text((x, y), watermark_text, font=font, fill=fill)
+        for x, y, text, fill, anchor in positions:
+            draw.text((x, y), text, font=font, fill=fill, anchor=anchor)
 
         # Composite the watermark layer onto the image
         watermarked = Image.alpha_composite(img, txt_layer)
@@ -118,7 +115,7 @@ def process_photos(root_dir: Path):
             continue
 
         # Add watermark
-        add_watermark(png_path, output_path, "stufy")
+        add_watermark(png_path, output_path)
 
         # Move to to-sort (remove original from to-publish)
         png_path.unlink()
