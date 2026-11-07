@@ -35,16 +35,23 @@
         `;
     }
 
+    // Prefix asset paths so they resolve from the gallery HTML page
+    const ASSET_PREFIX = 'assets/';
+
+    function assetPath(p) {
+        return ASSET_PREFIX + p;
+    }
+
     // Render photo card
     function renderPhotoCard(path, currentPath) {
         const filename = getNameFromPath(path);
-        const thumbPath = path.replace('.png', '_thumb.png');
-        const lowPath = path.replace('.png', '_low.png');
-        const hiPath = path;
+        const thumbPath = assetPath(path.replace('.png', '_thumb.png'));
+        const lowPath = assetPath(path.replace('.png', '_low.png'));
+        const hiPath = assetPath(path);
         const folderName = currentPath ? getFolderName(currentPath) : 'root';
 
         return `
-            <div class="photo-card cursor-pointer" onclick="openModal('${path}', '${lowPath}', '${hiPath}', '${folderName}')" title="Click to view and download">
+            <div class="photo-card cursor-pointer" onclick="openModal('${hiPath}', '${lowPath}', '${hiPath}', '${folderName}')" title="Click to view and download">
                 <img src="${thumbPath}" alt="${folderName} - ${filename}" class="photo-thumb" loading="lazy">
                 <div class="photo-caption">
                     <div class="photo-title">${folderName}</div>
@@ -203,20 +210,23 @@
         }
     });
 
-    // Initialize gallery
+    // Initialize gallery - poll until GALLERY_DATA is available
     function init() {
-        if (typeof GALLERY_DATA === 'undefined') {
-            console.error('Gallery data not loaded - check gallery-data.js');
-            return;
+        function start() {
+            if (typeof GALLERY_DATA !== 'undefined') {
+                const emptyState = document.getElementById('empty-state');
+                emptyState.classList.add('hidden');
+
+                // Start at assets folder level (show real/rendered directly)
+                const assetsNode = GALLERY_DATA.assets ? GALLERY_DATA.assets.children : GALLERY_DATA;
+                navigateTo(assetsNode, '');
+            } else {
+                setTimeout(start, 100);
+            }
         }
-
-        const emptyState = document.getElementById('empty-state');
-        emptyState.classList.add('hidden');
-
-        // Start at assets folder level (show real/rendered directly)
-        const assetsNode = GALLERY_DATA.assets ? GALLERY_DATA.assets.children : GALLERY_DATA;
-        navigateTo(assetsNode, '');
+        start();
     }
+    document.addEventListener('DOMContentLoaded', init);
 
     // Start the gallery when DOM is ready
     if (document.readyState === 'loading') {
