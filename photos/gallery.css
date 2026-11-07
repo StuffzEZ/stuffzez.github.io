@@ -12,7 +12,7 @@
 }
 
 .folder-card:hover {
-    border-color: #e8a040;
+    border-color: #585860;
     background: #222228;
     transform: translateY(-1px);
 }
@@ -100,7 +100,7 @@
 
 .download-btn:hover {
     background: #3e3e42;
-    border-color: #e8a040;
+    border-color: #585860;
     color: #e8e6f0;
 }
 
@@ -109,27 +109,36 @@
     height: 14px;
 }
 
-/* Breadcrumb navigation */
+/* Breadcrumb navigation - tab style */
 #breadcrumb {
     font-family: 'Roboto Mono', monospace;
 }
 
 .breadcrumb-item {
-    color: #585860;
+    color: #787788;
     text-decoration: none;
-    padding: 2px 8px;
-    border-radius: 4px;
+    padding: 6px 12px;
+    border-radius: 6px;
     transition: all 0.15s ease;
+    border: 1px solid transparent;
 }
 
 .breadcrumb-item:hover {
     color: #e8e6f0;
     background: #323236;
+    border-color: #3e3e42;
+}
+
+.breadcrumb-current {
+    color: #e8e6f0;
+    background: #323236;
+    border-color: #585860;
+    cursor: default;
 }
 
 .breadcrumb-sep {
-    color: #3e3e42;
-    padding: 2px 4px;
+    color: #585860;
+    padding: 0 4px;
 }
 
 /* Section title (current folder) */
@@ -151,7 +160,7 @@
     display: inline-block;
     width: 4px;
     height: 14px;
-    background: #e8a040;
+    background: #585860;
     border-radius: 2px;
 }
 
