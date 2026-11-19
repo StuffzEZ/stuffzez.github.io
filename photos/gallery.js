@@ -207,8 +207,14 @@
         modalFilename.textContent = path.split('/').pop().replace(/\.png$/, '').replace(/_done$/, '');
 
         // Set download links
-        if (modalLow) modalLow.href = lowPath;
-        if (modalHigh) modalHigh.href = hiPath;
+        if (modalLow) {
+            modalLow.href = lowPath;
+            modalLow.dataset.filename = (path.split('/').pop() || 'photo.png');
+        }
+        if (modalHigh) {
+            modalHigh.href = hiPath;
+            modalHigh.dataset.filename = (path.split('/').pop() || 'photo.png');
+        }
 
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
@@ -253,4 +259,170 @@
     } else {
         init();
     }
+
+    // Download attribution dialog logic
+    let pendingDownload = null;
+
+    function openDownloadDialog(url, filename) {
+        const dialog = document.getElementById('download-dialog');
+        if (!dialog) return;
+        dialog.dataset.url = url;
+        dialog.dataset.filename = filename;
+        dialog.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => document.getElementById('dl-email').focus(), 100);
+    }
+
+    function closeDownloadDialog() {
+        const dialog = document.getElementById('download-dialog');
+        if (dialog) {
+            dialog.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    }
+
+    function confirmDownload() {
+        const email = document.getElementById('dl-email').value.trim();
+        if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+            alert('A valid email address is required.');
+            return;
+        }
+        const dialog = document.getElementById('download-dialog');
+        const url = dialog.dataset.url;
+        const filename = dialog.dataset.filename;
+        const github = document.getElementById('dl-github').value.trim();
+        const name = document.getElementById('dl-name').value.trim();
+        const notes = document.getElementById('dl-notes').value.trim();
+
+        // Fetch the image, embed attribution as a visible footer strip + PNG text chunk,
+        // then trigger download of the modified blob.
+        const attName = filename.replace(/\.png$/i, '');
+        const dlFilename = `${attName}_attrib_${encodeURIComponent(email).slice(0, 8)}.png`;
+
+        const statusMsg = document.createElement('div');
+        statusMsg.className = 'text-[#a2a1b3] text-xs font-mono mt-3';
+        statusMsg.textContent = 'Embedding attribution…';
+        dialog.querySelector('.space-y-3').appendChild(statusMsg);
+
+        fetch(url)
+            .then(r => r.blob())
+            .then(blob => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const buf = e.target.result;
+                    const dv = new DataView(buf);
+                    const png = embedAttributionIntoPng(dv, email, github, name, notes);
+                    const outBlob = new Blob([png], { type: 'image/png' });
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(outBlob);
+                    a.download = dlFilename;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(a.href);
+                    statusMsg.remove();
+                    closeDownloadDialog();
+                    ['dl-email', 'dl-github', 'dl-name', 'dl-notes'].forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el) el.value = '';
+                    });
+                };
+                reader.readAsArrayBuffer(blob);
+            })
+            .catch(err => {
+                statusMsg.textContent = 'Download failed — using direct link.';
+                statusMsg.classList.add('text-red-400');
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = dlFilename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                statusMsg.remove();
+                closeDownloadDialog();
+                ['dl-email', 'dl-github', 'dl-name', 'dl-notes'].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.value = '';
+                });
+            });
+    }
+
+    function embedAttributionIntoPng(dv, email, github, name, notes) {
+        // Build PNG text chunk payload
+        const attrLines = [
+            `Attribution: ${name || 'Unknown'} <${email}>`,
+            github ? `GitHub: ${github}` : '',
+            notes ? `Notes: ${notes}` : '',
+            `License: CC BY-NC 4.0`,
+            `Author: Stuf_y`,
+            `Site: stuffzez.github.io/photos/`,
+        ].filter(Boolean).join('\n');
+
+        const encoder = new TextEncoder();
+        const attrBytes = encoder.encode(attrLines);
+
+        // tEXt chunk: keyword "Attribution", null, value
+        const keyword = encoder.encode('Attribution');
+        const chunkData = new Uint8Array(keyword.length + 1 + attrBytes.length);
+        chunkData.set(keyword, 0);
+        chunkData[keyword.length] = 0;
+        chunkData.set(attrBytes, keyword.length + 1);
+
+        // Chunk layout: 4 (len) + 4 (type) + N (data) + 4 (crc)
+        const chunk = new Uint8Array(4 + 4 + chunkData.length + 4);
+        const dv2 = new DataView(chunk.buffer);
+        dv2.setUint32(0, chunkData.length, false);
+        dv2.setUint32(4, 0x74455874, false); // 'tEXt'
+        chunk.set(chunkData, 8);
+        // CRC covers the chunk type + data (per PNG spec)
+        const crcInput = new Uint8Array(4 + chunkData.length);
+        crcInput.set(new Uint8Array([0x74, 0x45, 0x58, 0x74]), 0);
+        crcInput.set(chunkData, 4);
+        dv2.setUint32(8 + chunkData.length, pngCrc32(crcInput), false);
+
+        // Insert right after the IHDR chunk (PNG spec: IHDR must be first)
+        const ihdrLen = dv.getUint32(8, false);
+        const insertAt = 8 + 4 + ihdrLen + 4 + 4; // sig + len + type + data + crc
+        const out = new Uint8Array(dv.byteLength + chunk.length);
+        out.set(new Uint8Array(dv.buffer, 0, insertAt), 0);
+        out.set(chunk, insertAt);
+        out.set(new Uint8Array(dv.buffer, insertAt, dv.byteLength - insertAt), insertAt + chunk.length);
+
+        return out;
+    }
+
+    function pngCrc32(data) {
+        const crcTable = [];
+        for (let n = 0; n < 256; n++) {
+            let c = n;
+            for (let k = 0; k < 8; k++) {
+                c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+            }
+            crcTable[n] = c >>> 0;
+        }
+        let crc = 0xFFFFFFFF;
+        for (let i = 0; i < data.length; i++) {
+            crc = crcTable[(crc ^ data[i]) & 0xFF] ^ (crc >>> 8);
+        }
+        return (crc ^ 0xFFFFFFFF) >>> 0;
+    }
+
+    // Override download button clicks to trigger attribution dialog
+    document.addEventListener('click', function(e) {
+        const target = e.target.closest('a.download-btn');
+        if (!target) return;
+        const href = target.getAttribute('href');
+        if (!href || href === '#') return;
+        e.preventDefault();
+        pendingDownload = { href: href, filename: target.getAttribute('data-filename') || 'photo.png' };
+        openDownloadDialog(href, pendingDownload.filename);
+    });
+
+    // Wire up dialog buttons
+    document.addEventListener('DOMContentLoaded', function() {
+        const cancel = document.getElementById('dl-cancel');
+        const confirm = document.getElementById('dl-confirm');
+        if (cancel) cancel.addEventListener('click', closeDownloadDialog);
+        if (confirm) confirm.addEventListener('click', confirmDownload);
+    });
 })();

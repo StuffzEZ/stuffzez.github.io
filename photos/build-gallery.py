@@ -38,6 +38,46 @@ def walk_assets(d):
                 node[f] = {"type": "file", "path": full}
     return tree
 
+LICENSE_URL = "https://github.com/StuffzEZ/stuffzez.github.io/blob/main/photos/LICENSE"
+AUTHOR_NAME = "Stuf_y"
+AUTHOR_SITE = "stuffzez.github.io/photos"
+AUTHOR_GH = "github.com/StuffzEZ"
+
+
+def embed_metadata(img, output_path, is_thumb=False):
+    """Embed Author/Copyright/License metadata into the image via EXIF."""
+    try:
+        exif = img.getexif()
+        # Software / tool tag
+        exif[0x0131] = f"{AUTHOR_NAME} / {AUTHOR_SITE}"
+        # Artist / creator
+        exif[0x013B] = AUTHOR_NAME
+        # Copyright notice
+        exif[0x8298] = f"Copyright (c) {AUTHOR_NAME} - {AUTHOR_SITE}"
+        # Image description — license + attribution
+        exif[0x010E] = (
+            f"License: Non-commercial, attribution required. "
+            f"Author: {AUTHOR_NAME} ({AUTHOR_GH}). "
+            f"License URL: {LICENSE_URL}"
+        )
+        # User comment — same info, machine-readable
+        exif[0x9286] = (
+            f"Author={AUTHOR_NAME}; Site={AUTHOR_SITE}; "
+            f"GitHub={AUTHOR_GH}; License=CC-BY-NC-4.0; "
+            f"LicenseURL={LICENSE_URL}"
+        )
+        exif_bytes = exif.tobytes()
+        img.save(output_path, "PNG", exif=exif_bytes, optimize=True)
+        return True
+    except Exception as e:
+        print(f"  warn: metadata embed failed for {output_path.name}: {e}")
+        try:
+            img.save(output_path, "PNG", optimize=True)
+        except Exception:
+            pass
+        return False
+
+
 def gen_variants(assets_dir, mt):
     """Rename each photo to name_done.ext and generate _done_thumb/_done_low variants."""
     created, skipped = [], []
@@ -92,12 +132,15 @@ def gen_variants(assets_dir, mt):
 
                     if not tp.exists():
                         c = img.copy(); c.thumbnail(THUMB_SIZE, Image.LANCZOS)
-                        c.save(tp, "PNG", optimize=True)
+                        embed_metadata(c, tp, is_thumb=True)
                         print(f"  thumb: {tr}")
                     if not lp.exists():
                         c = img.copy(); c.thumbnail((LOW_MAX_DIM, LOW_MAX_DIM), Image.LANCZOS)
-                        c.save(lp, "PNG", optimize=True)
+                        embed_metadata(c, lp)
                         print(f"  low: {lr}")
+
+                    # Main file also gets metadata
+                    embed_metadata(img, dp)
 
                     # Update manifest entry to point at the _done file
                     nd["path"] = dr

@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G4TE - Documentation</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/StuffzEZ/freeserver/refs/heads/main/stufyfreeserverbannerlogo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+        body { background-color: #232325; color: #c3c2cf; font-family: "Roboto Mono", monospace; }
+        .font-karla { font-family: 'Karla', sans-serif; }
+        .font-ubuntu { font-family: 'Ubuntu', sans-serif; }
+        .dotted-link { text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 6px; text-decoration-thickness: 1.5px; }
+        code { background: #1e1e20; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+        pre { background: #1e1e20; padding: 1rem; border-radius: 8px; overflow-x: auto; font-size: 0.85em; }
+        pre code { background: none; padding: 0; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col p-6 max-w-2xl mx-auto">
+
+    <a href="../index.html" class="text-[#a2a1b3] hover:text-white font-karla text-sm mt-4 self-start dotted-link">← g4te</a>
+
+    <main class="flex-1 py-12 space-y-16">
+        
+        <section>
+            <h1 class="text-3xl font-bold font-ubuntu text-white mb-6">g4te documentation</h1>
+            
+            <h2 class="font-ubuntu text-xl text-white mb-3">what is g4te?</h2>
+            <p class="font-karla text-[#a2a1b3] leading-relaxed mb-6">
+                g4te (pronounced "gate") is the free ai gateway for everybody. unified access to multiple ai providers including aws bedrock, openai, anthropic, google vertex, and more through a single endpoint. whether you're a developer or hobbyist, g4te makes it easy to use any ai without managing multiple api keys.
+            </p>
+
+            <h2 class="font-ubuntu text-xl text-white mb-3">key features</h2>
+            <ul class="font-karla text-[#a2a1b3] space-y-2 mb-8">
+                <li>• unified api across all major ai providers</li>
+                <li>• add your own keys for private usage without touching public quotas</li>
+                <li>• contribute keys to the public pool if you want</li>
+                <li>• powered by new-api backend and stuf_y's free server</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="font-ubuntu text-xl text-white mb-3">your api key</h2>
+            <h3 class="text-white mb-2">how to get your key</h3>
+            <ol class="font-karla text-[#a2a1b3] space-y-1 list-decimal list-inside mb-4">
+                <li>log in through the sfs dashboard</li>
+                <li>go to g4te settings in your profile</li>
+                <li>click "generate new key"</li>
+                <li>copy and save your key securely</li>
+            </ol>
+            <p class="font-karla text-[#787788] text-xs mb-6">keys are never stored in plaintext. we only store encrypted references.</p>
+
+            <h3 class="text-white mb-2">using your key</h3>
+            <pre><code># example request with curl
+curl https://g4te.stufy.qzz.io/v1/chat/completions \
+  -H "Authorization: YOUR_KEY_HERE" \
+  -H "Content-Type: application/json" \
+  -d '{"model": "gpt-4", "messages": [{"role": "user", "content": "hello"}]}'</code></pre>
+        </section>
+
+        <section>
+            <h2 class="font-ubuntu text-xl text-white mb-3">detail logging in</h2>
+            <h3 class="text-white mb-2">authentik integration</h3>
+            <p class="font-karla text-[#a2a1b3] leading-relaxed mb-3">
+                g4te uses stuf_y's free server authentik instance for authentication. this means:
+            </p>
+            <ul class="font-karla text-[#a2a1b3] space-y-1 mb-6">
+                <li>• single sign-on across all sfs services</li>
+                <li>• secure passwordless login options</li>
+                <li>• audit logs for all activity</li>
+                <li>• configurable session timeouts</li>
+            </ul>
+
+            <h3 class="text-white mb-2">login flow</h3>
+            <ol class="font-karla text-[#a2a1b3] space-y-1 list-decimal list-inside">
+                <li>navigate to the auth portal</li>
+                <li>choose your preferred login method (password, oauth, etc.)</li>
+                <li>complete multi-factor authentication if enabled</li>
+                <li>you'll be redirected back to g4te with an active session</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2 class="font-ubuntu text-xl text-white mb-3">topping up balance</h2>
+            <h3 class="text-white mb-2">understanding credits</h3>
+            <p class="font-karla text-[#a2a1b3] leading-relaxed mb-4">
+                each ai provider has different pricing. your g4te balance covers usage across all providers based on their individual rates. check the dashboard for real-time usage tracking.
+            </p>
+            <h3 class="text-white mb-2">adding funds</h3>
+            <p class="font-karla text-[#a2a1b3] leading-relaxed mb-4">
+                balance top-ups are handled through the sfs billing interface. cryptocurrency and traditional payment methods may be supported depending on availability.
+            </p>
+            <p class="font-karla text-[#787788] text-sm italic">note: some basic usage is provided free of charge as part of g4te's mission.</p>
+        </section>
+
+        <section>
+            <h2 class="font-ubuntu text-xl text-white mb-3">linking apps</h2>
+            <h3 class="text-white mb-2">connecting third-party apps</h3>
+            <p class="font-karla text-[#a2a1b3] leading-relaxed mb-4">
+                g4te supports standard openai-compatible apis, meaning most tools that work with openai will work with g4te out of the box:
+            </p>
+            <div class="grid grid-cols-2 gap-3 mb-6">
+                <div class="bg-[#1e1e20] p-3 rounded">
+                    <span class="font-bold text-white">chatbot frameworks</span>
+                    <p class="font-karla text-[#a2a1b3] text-sm mt-1">chainlit, langchain, llama-index</p>
+                </div>
+                <div class="bg-[#1e1e20] p-3 rounded">
+                    <span class="font-bold text-white">desktop apps</span>
+                    <p class="font-karla text-[#a2a1b3] text-sm mt-1">continue, poetry, jan</p>
+                </div>
+                <div class="bg-[#1e1e20] p-3 rounded">
+                    <span class="font-bold text-white">mobile apps</span>
+                    <p class="font-karla text-[#a2a1b3] text-sm mt-1">chatbox, imessage extensions</p>
+                </div>
+                <div class="bg-[#1e1e20] p-3 rounded">
+                    <span class="font-bold text-white">web platforms</span>
+                    <p class="font-karla text-[#a2a1b3] text-sm mt-1">next.js, n8n, make.com</p>
+                </div>
+            </div>
+
+            <h3 class="text-white mb-2">configuration</h3>
+            <p class="font-karla text-[#a2a1b3] leading-relaxed">
+                set your base url to <code>https://g4te.stufy.qzz.io/v1</code> and use your g4te api key instead of your provider key. model names follow standard conventions like <code>gpt-4</code>, <code>claude-3-opus</code>, etc.
+            </p>
+        </section>
+
+        <section class="border-t border-[#3a3a3f] pt-8">
+            <h2 class="font-ubuntu text-xl text-white mb-3">planned features</h2>
+            <p class="font-karla text-[#a2a1b3] text-sm leading-relaxed">
+                advanced rate limiting, team workspaces, custom routing rules, webhooks for usage alerts, and dedicated support channels. stay tuned for updates.
+            </p>
+        </section>
+    </main>
+
+    <footer class="border-t border-[#3a3a3f] py-4 text-center">
+        <p class="text-xs text-[#787788] font-mono">&copy; 2026-present stuf_y</p>
+    </footer>
+
+</body>
+</html>

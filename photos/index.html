@@ -135,10 +135,10 @@
                     
                     <!-- Download buttons -->
                     <div class="download-row flex-wrap">
-                        <a id="modal-low" href="#" class="download-btn" download>
+                        <a id="modal-low" href="#" class="download-btn" download data-filename="photo.png">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> low res
                         </a>
-                        <a id="modal-high" href="#" class="download-btn" download>
+                        <a id="modal-high" href="#" class="download-btn" download data-filename="photo.png">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> high res
                         </a>
                     </div>
@@ -157,5 +157,52 @@
             <a href="https://github.com/StuffzEZ/stuffzez.github.io/issues" target="_blank" rel="noopener noreferrer" class="dotted-link text-[#a2a1b3] hover:text-white font-ubuntu transition-colors duration-200">report an issue</a>
         </div>
     </footer>
-</body>
-</html>
+
+        <!-- Download attribution dialog -->
+        <div id="download-dialog" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm">
+            <div class="relative max-w-md w-full bg-[#1a1a1c] border border-[#323236] rounded-xl p-6">
+                <h3 class="text-white font-ubuntu text-lg mb-1">Attribution required</h3>
+                <p class="text-[#787788] text-xs font-mono mb-4">
+                    This work is licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener" class="text-[#a2a1b3] dotted-link">CC BY-NC 4.0</a>.
+                    Please provide credit so we can verify legitimate downloads.
+                </p>
+
+                <div class="space-y-3">
+                    <div>
+                        <label class="text-[#787788] text-xs font-mono block mb-1">Email <span class="text-red-400">*</span></label>
+                        <input type="email" id="dl-email" required
+                               class="w-full bg-[#232325] border border-[#323236] rounded px-3 py-2 text-[#c3c2cf] text-sm font-mono focus:outline-none focus:border-[#a2a1b3]"
+                               placeholder="you@example.com">
+                    </div>
+                    <div>
+                        <label class="text-[#787788] text-xs font-mono block mb-1">GitHub username</label>
+                        <input type="text" id="dl-github"
+                               class="w-full bg-[#232325] border border-[#323236] rounded px-3 py-2 text-[#c3c2cf] text-sm font-mono focus:outline-none focus:border-[#a2a1b3]"
+                               placeholder="optional">
+                    </div>
+                    <div>
+                        <label class="text-[#787788] text-xs font-mono block mb-1">Name</label>
+                        <input type="text" id="dl-name"
+                               class="w-full bg-[#232325] border border-[#323236] rounded px-3 py-2 text-[#c3c2cf] text-sm font-mono focus:outline-none focus:border-[#a2a1b3]"
+                               placeholder="optional">
+                    </div>
+                    <div>
+                        <label class="text-[#787788] text-xs font-mono block mb-1">Notes</label>
+                        <textarea id="dl-notes" rows="2"
+                               class="w-full bg-[#232325] border border-[#323236] rounded px-3 py-2 text-[#c3c2cf] text-sm font-mono focus:outline-none focus:border-[#a2a1b3]"
+                               placeholder="how will you use this photo? (optional)"></textarea>
+                    </div>
+                </div>
+
+                <p class="text-[#585860] text-xs font-mono mt-3">
+                    Nothing is shared with anyone. Your details are embedded only in the downloaded file so we can verify legitimate downloads.
+                </p>
+
+                <div class="flex gap-3 mt-5">
+                    <button id="dl-cancel" class="flex-1 px-4 py-2 rounded border border-[#323236] text-[#787788] text-sm font-mono hover:bg-[#232325] transition-colors">Cancel</button>
+                    <button id="dl-confirm" class="flex-1 px-4 py-2 rounded bg-[#a2a1b3] text-black text-sm font-ubuntu font-medium hover:bg-white transition-colors">Download</button>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
