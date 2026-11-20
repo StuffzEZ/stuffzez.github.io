@@ -1,7 +1,7 @@
 /*
  * Auto-generated gallery manifest.
  * Run build-gallery.py after adding photos.
- * Generated on 2026-11-10 18:55
+ * Generated on 2026-11-11 17:21 (--force --meta)
  */
 
 // @ts-nocheck
@@ -187,17 +187,17 @@ window.GALLERY_DATA =
                         "type": "file",
                         "path": "rendered/ingame/satisfactory/landscape/Screenshot_20261106-211151_done.png"
                       },
-                      "Screenshot_20261106-211154.png": {
+                      "Screenshot_20261106-211154_done.png": {
                         "type": "file",
-                        "path": "rendered\\ingame\\satisfactory\\landscape\\Screenshot_20261106-211154_done.png"
+                        "path": "rendered/ingame/satisfactory/landscape/Screenshot_20261106-211154_done.png"
                       },
-                      "Screenshot_20261106-211159.png": {
+                      "Screenshot_20261106-211159_done.png": {
                         "type": "file",
-                        "path": "rendered\\ingame\\satisfactory\\landscape\\Screenshot_20261106-211159_done.png"
+                        "path": "rendered/ingame/satisfactory/landscape/Screenshot_20261106-211159_done.png"
                       },
-                      "Screenshot_20261106-211211.png": {
+                      "Screenshot_20261106-211211_done.png": {
                         "type": "file",
-                        "path": "rendered\\ingame\\satisfactory\\landscape\\Screenshot_20261106-211211_done.png"
+                        "path": "rendered/ingame/satisfactory/landscape/Screenshot_20261106-211211_done.png"
                       }
                     }
                   },
